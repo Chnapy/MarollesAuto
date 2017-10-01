@@ -1,11 +1,11 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/dist/',
         filename: 'build.js'
     },
     module: {
@@ -49,8 +49,17 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
-        noInfo: true
+        noInfo: true,
+        hot: true,
+        overlay: true,
+        open: true
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'public/index.html'
+        }),
+        new webpack.HotModuleReplacementPlugin()
+    ],
     performance: {
         hints: false
     },
