@@ -1,0 +1,29 @@
+{
+  "name": "marolles-auto",
+  "version": "0.0.1",
+  "description": "Site web vitrine de la société Marolle Auto.",
+  "main": "index.js",
+  "scripts": {
+    "update": "npm update",
+    "build": "webpack",
+    "build&watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chnapy (Richard Haddad)",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.4.4"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.3",
+    "webpack": "^3.6.0",
+    "ts-loader": "^2.3.7",
+    "css-loader": "^0.28.7",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "@types/node": "^8.0.9"
+  },
+  "engines": {
+    "node": ">=6.0"
+  }
+}
