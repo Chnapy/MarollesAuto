@@ -1,17 +1,29 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "lib": [
+      "dom",
+      "es2015"
+    ],
     "target": "es5",
+    "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "./built/",
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "experimentalDecorators": true
   },
   "include": [
     "./src/**/*"
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "compileOnSave": false
 }

@@ -1,13 +1,14 @@
 import Vue from "vue";
+import Button from './components/Button.vue';
+import '../scss/test.scss';
 
-let v = new Vue({
-    el: "#app",
-    template: `
-    <div>
-        <div>Hello {{name}}!</div>
-        Name: <input v-model="name" type="text">
-    </div>`,
-    data: {
-        name: "World"
-    }
+// mount
+const v = new Vue({
+    el: '#app',
+    render: h => h(Button, {
+        props: {
+            value: 'TestButton',
+            onClick: () => alert('It works !')
+        }
+    })
 });

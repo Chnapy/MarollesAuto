@@ -1,6 +1,9 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractSCSS = new ExtractTextPlugin("styles.css");
 
 module.exports = {
     entry: './src/index.ts',
@@ -11,6 +14,16 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.scss$/,
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "sass-loader" // compiles Sass to CSS
+                }]
+            },
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
@@ -19,7 +32,7 @@ module.exports = {
                         // the "scss" and "sass" values for the lang attribute to the right configs here.
                         // other preprocessors should work out of the box, no loader config like this necessary.
                         'scss': 'vue-style-loader!css-loader!sass-loader',
-                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
                     }
                     // other vue-loader options go here
                 }
@@ -29,7 +42,7 @@ module.exports = {
                 loader: 'ts-loader',
                 exclude: /node_modules/,
                 options: {
-                    appendTsSuffixTo: [/\.vue$/],
+                    appendTsSuffixTo: [/\.vue$/]
                 }
             },
             {
@@ -38,7 +51,11 @@ module.exports = {
                 options: {
                     name: '[name].[ext]?[hash]'
                 }
-            }
+            },
+            {test: /\.woff2?$/, loader: "url-loader?limit=10000&minetype=application/font-woff"},
+            {test: /\.ttf$/, loader: "file-loader"},
+            {test: /\.eot$/, loader: "file-loader"},
+            {test: /\.svg$/, loader: "file-loader"}
         ]
     },
     resolve: {
@@ -55,6 +72,7 @@ module.exports = {
         open: true
     },
     plugins: [
+        extractSCSS,
         new HtmlWebpackPlugin({
             template: 'public/index.html'
         }),
