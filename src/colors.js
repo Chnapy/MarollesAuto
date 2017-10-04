@@ -10,11 +10,6 @@ const COLORS = {
         primary: '#de8ae5'
     },
 
-    body: {
-        color: '#262626'
-
-    },
-
     panel: {
         bg: '#e1e1e1',
         color: '#212121',

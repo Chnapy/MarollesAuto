@@ -1,6 +1,47 @@
+@import "bootstrap-custom";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 
-@import "./bootstrap/stylesheets/bootstrap";
+a {
+  color: inherit;
+}
 
-* {
-  color: red;
+a, a:active, a:focus, a:hover {
+  outline: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: dotted 1px;
+  cursor: pointer;
+}
+
+body {
+  //background-color:
+}
+
+.navbar {
+  border: none;
+  color: #ccc;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+
+  .navbar-brand, ul.navbar-nav > li > a {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .25px;
+    text-decoration: none;
+  }
+
+  ul.navbar-nav > li > a {
+    padding-left: 17px;
+    padding-right: 29px;
+    color: #ccc;
+  }
+}
+
+.module {
+  background: #e1e1e1;
+  color: #212121;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
 }

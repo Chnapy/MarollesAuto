@@ -1,0 +1,23 @@
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+
+$body-bg: #ccc;
+$text-color: #262626;
+
+$border-radius-base: 0;
+
+$font-size-base: 16px;
+$font-family-sans-serif: Open Sans, sans-serif;
+$font-family-base: $font-family-sans-serif;
+
+$line-height-base: 1.5;
+
+$navbar-default-color: #ccc;
+
+$navbar-default-bg: rgba(#1A1A1A, .9);
+
+$navbar-default-link-hover-color: #fff;
+
+$navbar-default-brand-color: #de8ae5;
+$navbar-default-brand-hover-color: #f9b2ff;
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";

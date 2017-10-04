@@ -7,7 +7,7 @@
 <script lang="ts">
 
     import Vue from 'Vue';
-    import {Component, Prop, Provide} from "vue-property-decorator";
+    import {Component, Prop} from "vue-property-decorator";
 
     @Component
     export default class Button extends Vue {

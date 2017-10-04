@@ -14,16 +14,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.scss$/,
-                use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
-                }, {
-                    loader: "css-loader" // translates CSS into CommonJS
-                }, {
-                    loader: "sass-loader" // compiles Sass to CSS
-                }]
-            },
-            {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
@@ -51,6 +41,16 @@ module.exports = {
                 options: {
                     name: '[name].[ext]?[hash]'
                 }
+            },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "sass-loader" // compiles Sass to CSS
+                }]
             },
             {test: /\.woff2?$/, loader: "url-loader?limit=10000&minetype=application/font-woff"},
             {test: /\.ttf$/, loader: "file-loader"},
