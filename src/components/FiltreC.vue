@@ -1,10 +1,10 @@
 <template>
 
-    <aside class="well module">
+    <aside class="well">
 
         <form class="form-horizontal">
-            <fieldset>
-                <legend>Rechercher une voiture</legend>
+            <!--<fieldset>-->
+            <h4 class="text-center">Rechercher une voiture</h4>
                 <div class="form-group">
                     <div class="col-xs-12">
                         <input class="form-control" id="search" placeholder="Ford 500 blabla"/>
@@ -87,10 +87,10 @@
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                         <button type="reset" class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button class="btn btn-primary">Submit</button>
                     </div>
                 </div>
-            </fieldset>
+            <!--</fieldset>-->
         </form>
 
     </aside>
@@ -112,13 +112,10 @@
 <style lang="scss" scoped>
 
     aside {
-        z-index: 1;
-        min-height: 56px;
+        /*min-height: 56px;*/
         font-size: .8125em;
         color: grey;
         font-weight: 600;
-        border: none;
-        /*border-radius: 0;*/
 
         hr {
             border-color: #cfcfcf;
@@ -130,29 +127,11 @@
         }
     }
 
-    .form {
-        /*background: #dedede;*/
-        font-size: 13px;
-        color: #595959;
-    }
+    /*.form {*/
+    /*!*background: #dedede;*!*/
+    /*font-size: 13px;*/
+    /*color: #595959;*/
+    /*}*/
 
-    .form-control {
-        &:not([type]), &[type="text"], &[type="number"], &[type="password"], &[type="email"], select, textarea {
-            /*min-height: 42px;*/
-            /*padding: 10px;*/
-            border-color: #b1b1b1;
-            font-size: 1em;
-            /*line-height: 20px;*/
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-            background: #ededed;
-            font-weight: normal;
-            color: #4c4c4c;
-        }
-    }
-
-    .input-group .input-group-addon {
-        border-color: #b1b1b1;
-        font-variant: small-caps;
-    }
 
 </style>

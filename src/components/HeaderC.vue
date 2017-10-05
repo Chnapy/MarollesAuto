@@ -6,7 +6,7 @@
 
             <div class="navbar-header">
                 <a id="logo" class="navbar-brand" href="#">
-                    <img alt="logo" src="/public/img/logo_100x100.gif" width="35" height="35">
+                    <img alt="logo" :src="{logoSrc}" width="35" height="35">
                 </a>
                 <a href="../" class="navbar-brand">
                     Marolles Auto
@@ -48,9 +48,13 @@
 
     import Vue from 'Vue';
     import {Component, Prop, Provide} from "vue-property-decorator";
+    //    import logo from '~@/public/img/logo_100x100.gif';
 
     @Component
     export default class HeaderC extends Vue {
+
+        @Provide()
+        logoSrc = 'toto';
 
 //        @Prop()
 //        value: string;
