@@ -75,13 +75,12 @@
     }
 
     .row-table {
-        display: table;
-        width: 100%;
+        margin: 0;
     }
 
     .col-table {
-        display: table-cell;
         vertical-align: bottom;
+        padding: 0;
     }
 
     .prix-container {

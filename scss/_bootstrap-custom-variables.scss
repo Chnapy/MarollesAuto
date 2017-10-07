@@ -1,6 +1,7 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
-$body-bg: #ccc;
+$body-bg: #eee;
+//$body-bg: #ccc;
 $text-color: #262626;
 
 $brand-primary: #158cba;
@@ -16,7 +17,8 @@ $line-height-base: 1.5;
 
 $navbar-default-color: $text-color;
 //$navbar-default-color: #ccc;
-$navbar-default-bg: rgba(#e8e8e8, .9);
+$navbar-default-bg: rgba(#f0f0f0, .9);
+//$navbar-default-bg: rgba(#e8e8e8, .9);
 //$navbar-default-bg: rgba(#1A1A1A, .9);
 
 $navbar-default-link-color: #454545;
@@ -30,7 +32,8 @@ $navbar-default-link-active-bg: rgba($brand-primary, 1);
 $navbar-default-link-active-color: #fff;
 
 //$well-bg: #e1e1e1;
-$well-bg: #ededed;
+$well-bg: #f4f4f4;
+//$well-bg: #ededed;
 $well-border: transparent;
 
 $headings-font-weight: 300;
@@ -60,7 +63,8 @@ $btn-primary-border: #026b93;
 $link-color: $brand-primary;
 $link-hover-color: $btn-primary-border;
 
-$thumbnail-bg: #e1e1e1;
+$thumbnail-bg: #f4f4f4;
+//$thumbnail-bg: #e1e1e1;
 $thumbnail-border: transparent;
 $thumbnail-padding: 0;
 $thumbnail-caption-color: #595959;

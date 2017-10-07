@@ -14,15 +14,15 @@
                 <hr/>
 
                 <div class="form-group">
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <label for="f-marque" class="control-label">Marque</label>
                         <input class="form-control" id="f-marque" placeholder="Ford"/>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <label for="f-modele" class="control-label">Modèle</label>
                         <input class="form-control" id="f-modele" placeholder="C4"/>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <label for="f-km" class="control-label">Kilométrage</label>
                         <input type="number" class="form-control" id="f-km" placeholder="55000"/>
                     </div>
@@ -31,13 +31,13 @@
                     <div class="col-xs-12 text-center">
                         <label for="f-prix-min" class="control-label">Budget</label>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <div class="input-group">
                             <span class="input-group-addon">min</span>
                             <input type="number" class="form-control" id="f-prix-min">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <div class="input-group">
                             <span class="input-group-addon">max</span>
                             <input type="number" class="form-control" id="f-prix-max">
