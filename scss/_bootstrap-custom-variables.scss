@@ -3,6 +3,9 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $body-bg: #ccc;
 $text-color: #262626;
 
+$brand-primary: #158cba;
+$brand-warning: #ff851b;
+
 $border-radius-base: 0;
 
 $font-size-base: 16px;
@@ -11,35 +14,74 @@ $font-family-base: $font-family-sans-serif;
 
 $line-height-base: 1.5;
 
-$navbar-default-color: #ccc;
+$navbar-default-color: $text-color;
+//$navbar-default-color: #ccc;
+$navbar-default-bg: rgba(#e8e8e8, .9);
+//$navbar-default-bg: rgba(#1A1A1A, .9);
 
-$navbar-default-bg: rgba(#1A1A1A, .9);
+$navbar-default-link-color: #454545;
+$navbar-default-link-hover-color: $text-color;
 
-$navbar-default-link-hover-color: #fff;
+$navbar-default-brand-color: $text-color;
+//$navbar-default-brand-color: #de8ae5;
+$navbar-default-brand-hover-color: #000;
 
-$navbar-default-brand-color: #de8ae5;
-$navbar-default-brand-hover-color: #f9b2ff;
+$navbar-default-link-active-bg: rgba($brand-primary, 1);
+$navbar-default-link-active-color: #fff;
 
-$well-bg: #e1e1e1;
+//$well-bg: #e1e1e1;
+$well-bg: #ededed;
 $well-border: transparent;
 
 $headings-font-weight: 300;
 
-$input-bg: #ededed;
+//$input-bg: #ededed;
+$input-bg: #fff;
 $input-color: #4c4c4c;
 $input-border: #b1b1b1;
+$input-border-focus: $brand-primary;
 
 $input-group-addon-border-color: #b1b1b1;
 
-$btn-border-radius-base: 3px;
+$btn-border-radius-base: 0;
 $btn-font-weight: 600;
 
 $btn-default-color: #4c4c4c;
-$btn-default-bg: #dedede;
+//$btn-default-bg: #dedede;
+$btn-default-bg: #f8f8f8;
 $btn-default-border: #bababa;
 
-$btn-primary-bg: #9fbf00;
+//$btn-primary-bg: #9fbf00;
+//$btn-primary-bg: #158cba;
 $btn-primary-color: #fff;
-$btn-primary-border: #a7a7a7;
+$btn-primary-border: #026b93;
+//$btn-primary-border: #a7a7a7;
+
+$link-color: $brand-primary;
+$link-hover-color: $btn-primary-border;
+
+$thumbnail-bg: #e1e1e1;
+$thumbnail-border: transparent;
+$thumbnail-padding: 0;
+$thumbnail-caption-color: #595959;
+$thumbnail-caption-padding: 8px;
+
+$label-default-bg: #788795;
 
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+//Variables perso
+
+$thumbnail-width: 275px;
+$thumbnail-title-color: #262626;
+
+$btn-default-hover-bg: #fff;
+//$btn-default-hover-bg: linear-gradient(#e3e3e3, #dedede 96%);
+
+$btn-primary-bgln: #158cba;
+//$btn-primary-bgln: linear-gradient(#9fbf00, #80ab00);
+$btn-primary-hover-bg: #1d94c2;
+//$btn-primary-hover-bg: linear-gradient(#a3c400, #84b000);
+
+$well-color: #212121;
+$well-border: #cfcfcf;

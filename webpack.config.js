@@ -2,18 +2,50 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const postcssImport = require('postcss-import');
+const postcssUrl = require('postcss-url');
 
 const extractSCSS = new ExtractTextPlugin("styles.css");
+
+const IS_DEV = process.argv.indexOf('-p') === -1;
+const CLEAR = process.env.npm_lifecycle_event.substr(0, 5) === 'build';
+
+const dest = IS_DEV ? './build' : './dist';
 
 module.exports = {
     entry: './src/index.ts',
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, dest),
         filename: 'build.js',
-        publicPath: path.resolve(__dirname, './public')
+        // publicPath: path.resolve(__dirname, './public')
     },
+    // postcss: function(webpack) {
+    //     return [
+    //         postcssImport({
+    //             addDependencyTo: webpack
+    //         }),
+    //         postcssUrl(),
+    //         autoprefixer({
+    //             browsers: ['last 2 versions']
+    //         })
+    //     ];
+    // },
     module: {
         rules: [
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        // publicPath: './public',
+                        // useRelativePath: true,
+                        exclude: /node_modules/,
+                        name: 'img/[name].[ext]?[hash]'
+                    }
+                }
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -37,26 +69,40 @@ module.exports = {
                 }
             },
             {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]?[hash]'
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    //resolve-url-loader may be chained before sass-loader if necessary
+                    use: ['css-loader?-autoprefixer', /*'postcss-loader',*/ 'sass-loader']
+                })
+                // use: [{
+                //     loader: "style-loader" // creates style nodes from JS strings
+                // }, {
+                //     loader: "css-loader" // translates CSS into CommonJS
+                // }, {
+                //     loader: "sass-loader" // compiles Sass to CSS
+                // }]
+            },
+            {
+                test: /\.woff2?$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        minetype: 'application/font-woff',
+                        name: 'font/[name].[ext]?[hash]'
+                    }
                 }
             },
             {
-                test: /\.scss$/,
-                use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
-                }, {
-                    loader: "css-loader" // translates CSS into CommonJS
-                }, {
-                    loader: "sass-loader" // compiles Sass to CSS
-                }]
-            },
-            {test: /\.woff2?$/, loader: "url-loader?limit=10000&minetype=application/font-woff"},
-            {test: /\.ttf$/, loader: "file-loader"},
-            {test: /\.eot$/, loader: "file-loader"},
-            {test: /\.svg$/, loader: "file-loader"}
+                test: /\.(ttf|eot|svg)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'font/[name].[ext]?[hash]'
+                    }
+                }
+            }
         ]
     },
     resolve: {
@@ -85,15 +131,23 @@ module.exports = {
     devtool: '#eval-source-map'
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (!module.exports.plugins) {
+    module.exports.plugins = [];
+}
+
+if (CLEAR) {
+    module.exports.plugins = [new CleanWebpackPlugin([dest])].concat(module.exports.plugins);
+}
+
+if (!IS_DEV) {
     module.exports.devtool = '#source-map';
     // http://vue-loader.vuejs.org/en/workflow/production.html
-    module.exports.plugins = (module.exports.plugins || []).concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
+    module.exports.plugins = module.exports.plugins.concat([
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         NODE_ENV: '""'
+        //     }
+        // }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             compress: {
@@ -104,4 +158,10 @@ if (process.env.NODE_ENV === 'production') {
             minimize: true
         })
     ])
+} else {
+    // module.exports.plugins.push(new webpack.DefinePlugin({
+    //     'process.env': {
+    //         'NODE_ENV': '""'
+    //     }
+    // }));
 }

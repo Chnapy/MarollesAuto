@@ -81,9 +81,9 @@
                         </select>
                     </div>
                 </div>
-                <span class="link">
+            <a class="link">
                     Plus d'infos...
-                </span>
+            </a>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                         <button type="reset" class="btn btn-default">Cancel</button>
@@ -110,19 +110,20 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "../../scss/bootstrap-custom-variables";
 
     aside {
         /*min-height: 56px;*/
         font-size: .8125em;
-        color: grey;
+        color: $well-color;
         font-weight: 600;
 
         hr {
-            border-color: #cfcfcf;
+            border-color: $well-border;
         }
 
         .form-group > *:not(:first-child) {
-            border: solid #cfcfcf;
+            border: solid $well-border;
             border-width: 0 0 0 1px;
         }
     }

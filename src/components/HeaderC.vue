@@ -6,7 +6,7 @@
 
             <div class="navbar-header">
                 <a id="logo" class="navbar-brand" href="#">
-                    <img alt="logo" :src="{logoSrc}" width="35" height="35">
+                    <img alt="logo" :src="logoSrc" width="35" height="35">
                 </a>
                 <a href="../" class="navbar-brand">
                     Marolles Auto
@@ -20,7 +20,7 @@
 
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li class="active">
                         <a href="http://news.bootswatch.com">Annonces</a>
                     </li>
                     <li>
@@ -32,8 +32,10 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://pros.lacentrale.fr/C013464/" target="_blank" id="logo-lc"><img
+                            alt="lacentrale.fr" :src="logoLC"></a></li>
                     <li><a href="http://builtwithbootstrap.com/" target="_blank">Contact</a></li>
-                    <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">LaCentrale</a></li>
+                    <li><a href="http://builtwithbootstrap.com/" target="_blank">Plan d'accès</a></li>
                 </ul>
 
             </div>
@@ -48,13 +50,18 @@
 
     import Vue from 'Vue';
     import {Component, Prop, Provide} from "vue-property-decorator";
-    //    import logo from '~@/public/img/logo_100x100.gif';
+
+    const logo = require('../../public/img/logo_100x100.gif');
+    const logo_lc = require('../../public/img/logo_lacentrale_3.png');
 
     @Component
     export default class HeaderC extends Vue {
 
         @Provide()
-        logoSrc = 'toto';
+        logoSrc = logo;
+
+        @Provide()
+        logoLC = logo_lc;
 
 //        @Prop()
 //        value: string;

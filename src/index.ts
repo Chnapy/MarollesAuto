@@ -1,11 +1,11 @@
 import Vue from "vue";
-import MainC from './components/MainC.vue';
-import '../scss/test.scss';
+import root from './root.vue';
+import '../scss/root.scss';
 
 // mount
-const v = new Vue({
+window['root'] = new Vue({
     el: '#app',
-    render: h => h(MainC, {
+    render: h => h(root, {
         props: {
             // value: 'TestButton',
             // onClick: () => alert('It works !')
