@@ -18,7 +18,7 @@
 
 <script lang="ts">
 
-    import Vue from 'Vue';
+    import Vue from 'vue';
     import {Component} from "vue-property-decorator";
     import FiltreC from './FiltreC';
     import ListeAnnoncesC from './ListeAnnoncesC';

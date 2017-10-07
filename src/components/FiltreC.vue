@@ -1,10 +1,11 @@
 <template>
 
-    <aside class="well">
+    <div>
+        <aside class="well">
 
-        <form class="form-horizontal">
-            <!--<fieldset>-->
-            <h4 class="text-center">Rechercher une voiture</h4>
+            <form class="form-horizontal">
+                <!--<fieldset>-->
+                <h4 class="text-center">Rechercher une voiture</h4>
                 <div class="form-group">
                     <div class="col-xs-12">
                         <input class="form-control" id="search" placeholder="Ford 500 blabla"/>
@@ -13,93 +14,196 @@
 
                 <hr/>
 
-                <div class="form-group">
-                    <div class="col-sm-4">
-                        <label for="f-marque" class="control-label">Marque</label>
-                        <input class="form-control" id="f-marque" placeholder="Ford"/>
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="f-modele" class="control-label">Modèle</label>
-                        <input class="form-control" id="f-modele" placeholder="C4"/>
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="f-km" class="control-label">Kilométrage</label>
-                        <input type="number" class="form-control" id="f-km" placeholder="55000"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-12 text-center">
-                        <label for="f-prix-min" class="control-label">Budget</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <span class="input-group-addon">min</span>
-                            <input type="number" class="form-control" id="f-prix-min">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <span class="input-group-addon">max</span>
-                            <input type="number" class="form-control" id="f-prix-max">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-2 control-label">Radios</label>
-                    <div class="col-lg-10">
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                Option one is this
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                Option two can be something else
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Selects</label>
-                    <div class="col-lg-10">
-                        <select class="form-control" id="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                        <br>
-                        <select multiple="" class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-            <a class="link">
-                    Plus d'infos...
-            </a>
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <button type="reset" class="btn btn-default">Cancel</button>
-                        <button class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-            <!--</fieldset>-->
-        </form>
+                <details>
+                    <summary class="btn btn-default btn-block">Filtres</summary>
 
-    </aside>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-marque" class="control-label">Marque</label>
+                            </div>
+                            <input class="form-control" id="f-marque" placeholder="Ford"/>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-modele" class="control-label">Modèle</label>
+                            </div>
+                            <input class="form-control" id="f-modele" placeholder="C4"/>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="text-center line-title">
+                                <label for="f-prix-min" class="control-label">Budget</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">min</span>
+                                        <input type="number" class="form-control" id="f-prix-min">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">max</span>
+                                        <input type="number" class="form-control" id="f-prix-max">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="checkbox">
+                                <label class="btn btn-default btn-block">
+                                    <input type="checkbox"><span class="checkbox-box"></span>
+                                    Première main
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-annee-min" class="control-label">Année</label>
+                            </div>
+                            <div class="form-group row-near">
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="f-annee-min" placeholder="min">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="f-annee-max" placeholder="max">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-km-min" class="control-label">Kilométrage</label>
+                            </div>
+                            <div class="form-group row-near">
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="f-km-min" placeholder="min">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="f-km-max" placeholder="max">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-energie" class="control-label">Energie</label>
+                            </div>
+                            <select multiple class="form-control" id="f-energie">
+                                <option>Diesel</option>
+                                <option>Essence</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-boite" class="control-label">Boite de vitesse</label>
+                            </div>
+                            <select multiple class="form-control" id="f-boite">
+                                <option>Manuelle</option>
+                                <option>Automatique</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-cv-min" class="control-label">Puissance fiscale CV</label>
+                            </div>
+                            <div class="form-group row-near">
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="f-cv-min" placeholder="min">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="f-cv-max" placeholder="max">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-portes" class="control-label">Nombre de portes</label>
+                            </div>
+                            <select multiple class="form-control" id="f-portes">
+                                <option>3</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-col-int" class="control-label">Couleur intérieure</label>
+                            </div>
+                            <select multiple class="form-control" id="f-col-int">
+                                <option>Tissu gris</option>
+                                <option>Cuir noir</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-center line-title">
+                                <label for="f-col-ext" class="control-label">Couleur extérieure</label>
+                            </div>
+                            <select multiple class="form-control" id="f-col-ext">
+                                <option>Gris foncé nacre</option>
+                                <option>Noir</option>
+                                <option>Blanc</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </details>
+
+                <hr/>
+
+                <div class="form-group text-center">
+                    <div>
+                        <button type="reset" class="btn btn-default">Annuler</button>
+                        <button class="btn btn-primary">Rechercher</button>
+                    </div>
+                    ou
+                    <div>
+                        <button class="btn btn-primary">Créer une alerte</button>
+                    </div>
+                </div>
+                <!--</fieldset>-->
+            </form>
+
+        </aside>
+
+    </div>
 
 </template>
 
 <script lang="ts">
 
-    import Vue from 'Vue';
+    import Vue from 'vue';
     import {Component} from "vue-property-decorator";
 
     @Component
@@ -118,21 +222,63 @@
         color: $well-color;
         font-weight: 600;
 
+        details > summary {
+            margin-bottom: $form-group-margin-bottom;
+        }
+
         hr {
             border-color: $well-border;
         }
+    }
 
-        .form-group > *:not(:first-child) {
-            border: solid $well-border;
-            border-width: 0 0 0 1px;
+    .form-group > .form-item:not(:first-child) {
+        border: solid $well-border;
+        border-width: 0 0 0 1px;
+    }
+
+    .line-title {
+        position: relative;
+
+        &::before {
+            content: ' ';
+            border-top: 1px solid $well-border;
+            display: inline-block;
+            height: .7em;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            pointer-events: none;
+        }
+
+        > label {
+            background: $well-bg;
+            position: relative;
+            padding-left: .5em;
+            padding-right: .5em;
         }
     }
 
-    /*.form {*/
-    /*!*background: #dedede;*!*/
-    /*font-size: 13px;*/
-    /*color: #595959;*/
-    /*}*/
+    .row-near {
+        $pad: $grid-gutter-width / 8;
+
+        > *:not(:first-child) {
+            padding-left: $pad;
+        }
+
+        > *:not(:last-child) {
+            padding-right: $pad;
+        }
+
+        .input-group-addon {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+    }
+
+    select.form-control {
+        height: $input-height-base;
+    }
 
 
 </style>

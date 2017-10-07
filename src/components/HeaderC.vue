@@ -48,7 +48,7 @@
 
 <script lang="ts">
 
-    import Vue from 'Vue';
+    import Vue from 'vue';
     import {Component, Prop, Provide} from "vue-property-decorator";
 
     const logo = require('../../public/img/logo_100x100.gif');

@@ -10,6 +10,19 @@ a, a:active, a:focus, a:hover {
   outline: 0;
 }
 
+input[type="checkbox"], input[type="radio"] {
+  cursor: pointer;
+}
+
+::selection {
+  background: $brand-primary;
+  color: $btn-primary-color;
+}
+::-moz-selection {
+  background: $brand-primary;
+  color: $btn-primary-color;
+}
+
 .link {
   //text-decoration: none;
   //color: inherit;
@@ -94,12 +107,19 @@ html, body, #mainWrapper {
 .btn {
   font-family: inherit;
   font-size: 1em;
-  font-weight: 600;
   white-space: nowrap;
   text-align: center;
-  text-transform: uppercase;
   text-overflow: ellipsis;
   outline: transparent solid !important;
+  font-weight: 600;
+
+  &:not(label) {
+    text-transform: uppercase;
+  }
+}
+
+.checkbox label.btn, .radio label.btn {
+  font-weight: inherit;
 }
 
 .btn-default {
@@ -151,7 +171,7 @@ html, body, #mainWrapper {
   }
 
   &:hover {
-    opacity: .9;
+    opacity: .95;
   }
 }
 

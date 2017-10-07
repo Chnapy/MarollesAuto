@@ -1,4 +1,4 @@
-import Vue from 'Vue';
+import Vue from 'vue';
 import {Component, Provide} from "vue-property-decorator";
 import HeaderC from './components/HeaderC.vue';
 import InfosAnnoncesC from './components/InfosAnnoncesC.vue';
@@ -25,7 +25,7 @@ export default class MainC extends Vue {
     @Provide()
     style = {
         background: `url(${bg}) no-repeat`,
-        'background-size': 'cover'
+        'background-size': '100% auto'
     };
 //
 //        @Provide()

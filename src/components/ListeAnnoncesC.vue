@@ -2,8 +2,38 @@
 
     <section>
 
+        <div class="row head">
+            <div class="col-xs-12">
+                <span class="title">23 voitures disponibles</span>
+                <span class="rm-filter btn btn-link">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    Supprimer les filtres
+                </span>
+
+                <div class="tri pull-right">
+                    Trier :
+                    <!--<select class="form-control">-->
+                        <!--<option>par prix</option>-->
+                    <!--</select>-->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                            Action <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-4 col-lg-4">
+
                 <div class="thumbnail">
                     <img :src="test" alt="...">
                     <div class="caption">
@@ -19,15 +49,16 @@
                             <div class="col-table">
                                 <div class="prix-container">
                                     <div class="reduc">
-                                        <div class="prix old"><span class="prix-text">7580</span></div>
+                                        <div class="prix old"><span class="prix-text">7 580</span></div>
                                         <span class="label label-warning reduc-label">300</span>
                                     </div>
-                                    <div class="prix primary"><span class="prix-text">7280</span></div>
+                                    <div class="prix primary"><span class="prix-text">7 280</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -37,7 +68,7 @@
 
 <script lang="ts">
 
-    import Vue from 'Vue';
+    import Vue from 'vue';
     import {Component, Provide} from "vue-property-decorator";
 
     const test = require('../../public/img/W100812182.jpg');
@@ -55,8 +86,49 @@
 <style lang="scss" scoped>
     @import "../../scss/bootstrap-custom-variables";
 
+    .head {
+        padding-bottom: 15px;
+        font-size: .875em;
+        color: grey;
+        line-height: 1.5;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        .btn-group {
+            vertical-align: top;
+        }
+
+        .btn {
+            height: 20px;
+            margin-top: -1px;
+            padding: 0;
+            color: inherit;
+            vertical-align: top;
+
+            &:hover, &:focus {
+                text-decoration: none;
+            }
+        }
+
+        .title {
+
+        }
+
+        .rm-filter {
+            margin-left: 20px;
+
+            .glyphicon {
+                font-size: .75em;
+            }
+        }
+
+        .tri {
+            font-weight: 300;
+        }
+    }
+
     .thumbnail {
-        width: $thumbnail-width;
+        //width: $thumbnail-width;
         position: relative;
         user-select: none;
         cursor: pointer;
