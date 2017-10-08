@@ -15,16 +15,14 @@
                     <!--<select class="form-control">-->
                         <!--<option>par prix</option>-->
                     <!--</select>-->
-                    <div class="btn-group">
+                    <div class="btn-group open">
                         <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                            Action <span class="caret"></span>
+                            Par date d'ajout <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Par date d'ajout</a></li>
+                            <li><a href="#">Par prix</a></li>
+                            <li><a href="#">Par année</a></li>
                         </ul>
                     </div>
                 </div>
@@ -243,6 +241,10 @@
             font-size: .7em;
             vertical-align: bottom;
         }
+    }
+
+    .dropdown-menu-right {
+        text-align: right;
     }
 
 </style>

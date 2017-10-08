@@ -151,6 +151,29 @@ html, body, #mainWrapper {
   }
 }
 
+.dropdown-menu {
+  font-size: inherit;
+  //background-color: darken($body-bg, 2%);
+  font-weight: 400;
+  padding: 0;
+  box-shadow: 0 0 7px rgba(0,0,0,.1), 0 3px 10px rgba(0,0,0,.15);
+
+  > li {
+    &:not(:last-child) {
+      border-bottom: 1px solid darken($body-bg, 10%);
+    }
+
+    //> a {
+    //  color: inherit;
+    //
+    //  &:hover {
+    //    color: inherit;
+    //    background-color: lighten($body-bg, 1%);
+    //  }
+    //}
+  }
+}
+
 #main {
   min-height: 100%;
   padding-top: $navbar-height + $navbar-margin-bottom;
@@ -171,6 +194,7 @@ html, body, #mainWrapper {
     z-index: -1;
     background-repeat: no-repeat;
     background-size: 100% auto;
+    filter: blur(4px);
   }
 }
 

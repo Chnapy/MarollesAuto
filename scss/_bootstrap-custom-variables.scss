@@ -74,6 +74,12 @@ $thumbnail-caption-padding: 8px;
 
 $label-default-bg: #788795;
 
+$dropdown-bg: darken($body-bg, 2%);
+$dropdown-link-color: inherit;
+$dropdown-link-hover-color: inherit;
+$dropdown-link-hover-bg: lighten($body-bg, 1%);
+
+
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 //Variables perso
