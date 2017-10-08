@@ -4,7 +4,7 @@ import HeaderC from './components/HeaderC.vue';
 import InfosAnnoncesC from './components/InfosAnnoncesC.vue';
 import ContentAnnoncesC from './components/ContentAnnoncesC.vue';
 
-const bg = require('../public/img/W100812182.jpg');
+// const bg = require('../public/img/W100812182.jpg');
 
 @Component({
     components: {
@@ -22,11 +22,14 @@ export default class MainC extends Vue {
 //        @Prop()
 //        onClick?: () => void;
 //
-    @Provide()
-    style = {
-        background: `url(${bg}) no-repeat`,
-        'background-size': '100% auto'
-    };
+//     @Provide()
+//     style = {
+//         background: `url(${bg}) no-repeat`,
+//         'background-size': '100% auto'
+//     };
+//
+//     @Provide()
+//     bgSrc = bg;
 //
 //        @Provide()
 //        helloMsg = 'Hello, ' + this.propMessage;

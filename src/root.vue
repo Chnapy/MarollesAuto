@@ -1,5 +1,8 @@
 <template>
-    <div id="mainWrapper" :style="style">
+    <div id="mainWrapper">
+
+        <!--<img :src="bgSrc" alt="" id="mainBg">-->
+        <!--<div :style="style" id="mainBg"></div>-->
 
         <div id="main">
 
@@ -76,3 +79,4 @@
 
 </template>
 <script lang="ts" src="./root.ts"></script>
+<!--<link rel="stylesheet" href="../scss/root.scss">-->

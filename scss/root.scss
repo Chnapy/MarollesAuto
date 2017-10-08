@@ -157,6 +157,31 @@ html, body, #mainWrapper {
   background: linear-gradient(to bottom, rgba($body-bg, .7) 0, $body-bg);
 }
 
+#mainWrapper {
+  position: relative;
+
+  &::before {
+    content: ' ';
+    background: url(../public/img/W100812182.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+}
+
+//#mainBg {
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  width:100%;
+//  z-index: -1;
+//}
+
 .thumbnail {
   border: none;
   box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
