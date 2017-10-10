@@ -79,13 +79,17 @@ $dropdown-link-color: inherit;
 $dropdown-link-hover-color: inherit;
 $dropdown-link-hover-bg: lighten($body-bg, 1%);
 
+$page-header-border-color: $input-border;
 
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 //Variables perso
 
 $thumbnail-width: 275px;
-$thumbnail-title-color: #262626;
+$thumbnail-title-color: $text-color;
+
+$thumbnail-inline-width: 133.33px;
+$thumbnail-inline-height: 100px;
 
 $btn-default-hover-bg: #fff;
 //$btn-default-hover-bg: linear-gradient(#e3e3e3, #dedede 96%);
@@ -97,3 +101,5 @@ $btn-primary-hover-bg: #1d94c2;
 
 $well-color: #212121;
 $well-border: #cfcfcf;
+
+$navbar-line-height: 2px;

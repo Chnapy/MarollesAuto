@@ -1,32 +1,25 @@
 <template>
     <div id="mainWrapper">
 
-        <!--<img :src="bgSrc" alt="" id="mainBg">-->
-        <!--<div :style="style" id="mainBg"></div>-->
-
         <div id="main">
 
-            <!--HEADER-->
             <HeaderC></HeaderC>
-
-            <InfosAnnoncesC></InfosAnnoncesC>
 
             <div class="container-fluid">
 
-                <ContentAnnoncesC></ContentAnnoncesC>
+                <main :is="content"></main>
 
             </div>
 
         </div>
 
         <footer id="main-footer">
-            <!--<div class="row top">-->
-            <!--</div>-->
+
             <div class="top-footer container-fluid">
                 <div class="container">
                     <div class="row-table">
                         <div class="col-table">
-                            <div class="text-center title">
+                            <div class="text-center foot-title">
                                 Qui sommes-nous
                             </div>
                             <div class="content">
@@ -37,7 +30,7 @@
                             </div>
                         </div>
                         <nav id="accesrap" class="col-table">
-                            <div class="text-center title">
+                            <div class="text-center foot-title">
                                 Accès rapide
                             </div>
                             <div class="content">

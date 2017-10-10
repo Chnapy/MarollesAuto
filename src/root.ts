@@ -3,6 +3,8 @@ import {Component, Provide} from "vue-property-decorator";
 import HeaderC from './components/HeaderC.vue';
 import InfosAnnoncesC from './components/InfosAnnoncesC.vue';
 import ContentAnnoncesC from './components/ContentAnnoncesC.vue';
+import AccueilC from './components/AccueilC.vue';
+import FicheC from './components/FicheC.vue';
 
 // const bg = require('../public/img/W100812182.jpg');
 
@@ -10,7 +12,9 @@ import ContentAnnoncesC from './components/ContentAnnoncesC.vue';
     components: {
         HeaderC,
         InfosAnnoncesC,
-        ContentAnnoncesC
+        ContentAnnoncesC,
+        AccueilC,
+        FicheC
     }
 })
 export default class MainC extends Vue {
@@ -28,8 +32,9 @@ export default class MainC extends Vue {
 //         'background-size': '100% auto'
 //     };
 //
-//     @Provide()
-//     bgSrc = bg;
+    @Provide()
+    content = FicheC;
+    // content = ContentAnnoncesC;
 //
 //        @Provide()
 //        helloMsg = 'Hello, ' + this.propMessage;

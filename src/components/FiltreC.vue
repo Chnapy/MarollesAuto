@@ -235,7 +235,7 @@
         border: solid $well-border;
         border-width: 0 0 0 1px;
     }
-
+/*
     .line-title {
         position: relative;
 
@@ -258,7 +258,7 @@
             padding-right: .5em;
         }
     }
-
+*/
     .row-near {
         $pad: $grid-gutter-width / 8;
 
