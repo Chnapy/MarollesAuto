@@ -12,14 +12,12 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
                     <ol class="carousel-indicators">
                         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                     </ol>
 
-                    <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
                             <img src="../../public/img/W100812182.jpg" alt="...">
@@ -52,6 +50,14 @@
                                     <td>Energie</td>
                                     <td>Diesel</td>
                                 </tr>
+                                <tr>
+                                    <td>Boite de vitesse</td>
+                                    <td>Mécanique</td>
+                                </tr>
+                                <tr>
+                                    <td>Mise en circulation</td>
+                                    <td>08/04/2008</td>
+                                </tr>
 
                             </table>
 
@@ -73,13 +79,252 @@
                                     <td>Nombre de portes</td>
                                     <td>5</td>
                                 </tr>
+                                <tr>
+                                    <td>Couleur intérieure</td>
+                                    <td>Tissus gris</td>
+                                </tr>
+                                <tr>
+                                    <td>Couleur extérieure</td>
+                                    <td>Gris clair métal</td>
+                                </tr>
 
                             </table>
 
                         </div>
                     </div>
 
-                    <!--</div>-->
+                </div>
+
+                <div class="bloc">
+
+                    <div class="lead">Options et équipements</div>
+
+                    <div class="row caracs-parent">
+                        <div class="col-sm-6">
+
+                            <table class="caracs">
+
+                                <tr>
+                                    <td>Antivol</td>
+                                    <td>Anti démarrage</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Extérieur et chassis</td>
+                                    <td>Aide parking av/ar</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Jantes alu 16"</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Rétroviseurs rabattables électriquement</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Rétroviseurs électriques et dégivrants</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Sécurité</td>
+                                    <td>6 airbags</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>ABS</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Détecteur de pluie</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>ESP</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Essuie-glaces automatiques</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Feux automatiques</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Essuie-glaces automatiques</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Fixations ISOFIX</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Kit téléphone main libre bluetooth</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Projecteurs antibrouillard</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Autre</td>
+                                    <td>Carnet d'entretien</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Factures d'entretien</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Non fumeur</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Roue de secours</td>
+                                </tr>
+
+
+                            </table>
+
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <table class="caracs">
+
+                                <tr>
+                                    <td>Confort</td>
+                                    <td>Bluetooth</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Intérieur</td>
+                                    <td>4 vitres électriques</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Accoudoir central arrière</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Accoudoir central avant</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Appuis-têtes arrière</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Banquette 1/3 - 2/3</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Banquette fractionnable</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Banquette rabattable</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Boite 6 vitesses</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Boite à gants réfrigérée</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Climatisation automatique multi zone</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Direction assistée</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Fermeture électrique automatique</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Kit téléphone main libre</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Ordinateur de bord</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Pack clim</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Pack électrique</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Prises audio auxiliaires</td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="bloc">
+
+                    <div class="lead">Données complémentaires</div>
+
+                    <div class="row caracs-parent">
+                        <div class="col-sm-6">
+
+                            <table class="caracs">
+
+                                <tr>
+                                    <td>Puissance DIN</td>
+                                    <td>140 ch</td>
+                                </tr>
+                                <tr>
+                                    <td>Volume de coffre</td>
+                                    <td>Nom communiqué</td>
+                                </tr>
+                                <tr>
+                                    <td>Réparations</td>
+                                    <td>Freins</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Pneus</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Embrayage</td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <table class="caracs">
+
+                                <tr>
+                                    <td>Emission de CO2</td>
+                                    <td>156 g/km</td>
+                                </tr>
+                                <tr>
+                                    <td>Consommation mixte</td>
+                                    <td>Non communiquée</td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+                    </div>
 
                 </div>
 
@@ -105,9 +350,37 @@
 
                     </div>
 
+                    <div class="bloc well well-sm">
+
+                        <div class="h3 text-center">
+                            <div>Marolles Autos s'engage</div>
+                            <small>Sécurité - Fiabilité</small>
+                        </div>
+                        <dl class="text-justify">
+                            <dt>Controle technique récent</dt>
+                            <dd>Chacune de nos voiture a passé un contrôle technique au maximum X ans avant la date d'achat.</dd>
+                            <dt>Garantie européenne 3 mois extensible</dt>
+                            <dd>Chacune de nos voitures est garantie au minimum 3 mois au niveau européen.</dd>
+                            <dt>Voiture révisée</dt>
+                            <dd>Toutes nos voitures en vente ont été révisées et testées par nos soins.</dd>
+                        </dl>
+
+
+                    </div>
+
                     <div class="bloc">
                         <p>
-                            blablabla slogan marolles autos
+                            Marolles Autos.<br/>
+                            Nous avons l'auto qu'il vous faut.
+                        </p>
+                        <p>
+                            L'auto garantie.<br/>
+                            Au meilleur prix.
+                        </p>
+                        <p>
+                            Satisfait ou remboursé.<br/>
+                            Une voiture achetée, une voiture offerte !<br/>
+                            Participez à la tombola et gagnez jusqu'à 5 voitures !
                         </p>
                     </div>
 
@@ -137,6 +410,10 @@
 <style lang="scss" scoped>
     @import "../../scss/bootstrap-custom-variables";
 
+    .carousel {
+        box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    }
+
     .bloc {
         margin-top: 15px;
     }
@@ -151,14 +428,14 @@
                 padding-bottom: 1em;
                 min-height: 1.5em;
 
-                &:first-child {
+                &:first-child:not(:last-child) {
                     color: $headings-small-color;
                     padding-right: 15px;
                     white-space: nowrap;
                     font-weight: 300;
                 }
 
-                &:last-child {
+                &:last-child:not(:first-child) {
                     text-align: right;
                 }
             }
@@ -167,6 +444,11 @@
 
     .caracs-parent.row > *:not(:first-child) {
         border-left: 1px solid $input-border;
+    }
+
+    .caracs-parent.row > *:not(:last-child) {
+        border-right: 1px solid #b1b1b1;
+        margin-right: -1px;
     }
 
 </style>

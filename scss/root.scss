@@ -297,6 +297,7 @@ hr {
 }
 
 #main-footer {
+  margin-top: 2em;
 
   a {
     color: inherit;
@@ -365,6 +366,7 @@ hr {
 
   .carousel-indicators > * {
     pointer-events: all;
+    border-radius: 0;
   }
 
   .carousel-inner .item img {
