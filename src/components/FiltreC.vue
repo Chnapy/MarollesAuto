@@ -235,30 +235,31 @@
         border: solid $well-border;
         border-width: 0 0 0 1px;
     }
-/*
-    .line-title {
-        position: relative;
 
-        &::before {
-            content: ' ';
-            border-top: 1px solid $well-border;
-            display: inline-block;
-            height: .7em;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            pointer-events: none;
-        }
-
-        > label {
-            background: $well-bg;
+    /*
+        .line-title {
             position: relative;
-            padding-left: .5em;
-            padding-right: .5em;
+
+            &::before {
+                content: ' ';
+                border-top: 1px solid $well-border;
+                display: inline-block;
+                height: .7em;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                pointer-events: none;
+            }
+
+            > label {
+                background: $well-bg;
+                position: relative;
+                padding-left: .5em;
+                padding-right: .5em;
+            }
         }
-    }
-*/
+    */
     .row-near {
         $pad: $grid-gutter-width / 8;
 

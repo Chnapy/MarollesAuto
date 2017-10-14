@@ -12,33 +12,44 @@
 
         <div class="row">
             <div class="col-sm-8">
-                <div class="carousel slide" data-ride="carousel" :data-index="carouselIndex">
 
-                    <div class="carousel-inner" role="listbox">
+                <div :class="{'carousel-container': true, fullscreen: carouselFullscreen}">
 
-                        <div :class="{active: i === carouselIndex, item: true}" v-for="(link, i) in carouselLinks"
-                             :key="i">
-                            <img :src="link" alt="..."/>
+                    <div class="carousel-bg" v-show="carouselFullscreen" v-on:click="carouselFullscreen = false"></div>
+
+                    <div class="carousel slide" data-ride="carousel" :data-index="carouselIndex">
+
+                        <div class="carousel-inner" role="listbox">
+
+                            <div :class="{active: i === carouselIndex, item: true}" v-for="(link, i) in carouselLinks"
+                                 :key="i">
+                                <img :src="link" alt="..." v-on:click="carouselFullscreen = !carouselFullscreen"/>
+                            </div>
+
                         </div>
 
-                    </div>
-
-                    <span class="left carousel-control" role="button" v-on:click="setCarouselIndex(carouselIndex - 1)" v-show="carouselIndex > 0">
+                        <span class="left carousel-control" role="button"
+                              v-on:click="setCarouselIndex(carouselIndex - 1)" v-show="carouselIndex > 0">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                         <span class="sr-only">Previous</span>
                     </span>
-                    <span class="right carousel-control" role="button" v-on:click="setCarouselIndex(carouselIndex + 1)" v-show="carouselIndex < carouselLinks.length - 1">
+                        <span class="right carousel-control" role="button"
+                              v-on:click="setCarouselIndex(carouselIndex + 1)"
+                              v-show="carouselIndex < carouselLinks.length - 1">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                         <span class="sr-only">Next</span>
                     </span>
 
-                </div>
+                    </div>
 
-                <div class="carousel-list">
+                    <div class="carousel-list">
 
-                    <div :class="{active: i === carouselIndex, thumbnail: true}" role="button" v-for="(link, i) in carouselLinks"
-                         :key="i" v-on:click="setCarouselIndex(i)">
-                        <img :src="link" alt="..."/>
+                        <div :class="{active: i === carouselIndex, thumbnail: true}" role="button"
+                             v-for="(link, i) in carouselLinks"
+                             :key="i" v-on:click="setCarouselIndex(i)">
+                            <img :src="link" alt="..."/>
+                        </div>
+
                     </div>
 
                 </div>
@@ -370,6 +381,10 @@
                                 <b><i class="glyphicon glyphicon-earphone"></i> 01 45 69 28 33</b>
                             </div>
 
+                            <div>
+                                <b><i class="glyphicon glyphicon-phone"></i> 06 12 34 56 78</b>
+                            </div>
+
                             <div class="strong">
                                 <b><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:marolleauto@aol.com"
                                                                                    class="link">marolleauto@aol.com</a></b>
@@ -452,6 +467,9 @@
     export default class FicheC extends Vue {
 
         @Provide()
+        carouselFullscreen: boolean = false;
+
+        @Provide()
         carouselLinks: string[] = carouselLinks;
 
         @Provide()
@@ -484,6 +502,110 @@
         }
     }
 
+    .carousel-list {
+        height: $carousel-list-height;
+        padding: 5px 0 20px;
+        margin-top: 5px;
+        overflow-x: overlay;
+        overflow-y: hidden;
+        white-space: nowrap;
+        text-align: center;
+
+        .thumbnail {
+            display: inline-block;
+            vertical-align: top;
+            height: 100%;
+            width: 112px;
+            margin-left: 10px;
+            position: relative;
+            box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+            white-space: nowrap;
+            text-align: center;
+            font-size: 0;
+            background: #1f1f1f;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            img {
+                max-height: 100%;
+            }
+
+            &:hover {
+                opacity: .9;
+            }
+
+            &.active {
+                opacity: .5;
+                pointer-events: none;
+            }
+        }
+    }
+
+    .carousel-control {
+        background: none;
+    }
+
+    .carousel-container {
+
+        .carousel-bg {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transition: .4s;
+        }
+
+        .carousel .item img {
+            cursor: zoom-in;
+        }
+
+        &.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9000;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            cursor: zoom-out;
+
+            .carousel-bg {
+                background: rgba(black, .5);
+            }
+
+            .carousel, .carousel-list {
+                width: 75%;
+                margin: auto;
+                cursor: default;
+                z-index: 9001;
+            }
+
+            .carousel-list {
+                position: absolute;
+                bottom: 6px;
+                left: 0;
+                right: 0;
+            }
+
+            .carousel {
+                height: calc(100% - #{$carousel-list-height});
+
+                .carousel-inner, .item {
+                    height: 100%;
+                }
+
+                .item img {
+                    max-height: 100%;
+                    cursor: zoom-out;
+                }
+            }
+        }
+    }
+
     .bloc {
         margin-top: 15px;
     }
@@ -499,7 +621,7 @@
                 min-height: 1.5em;
 
                 &:first-child:not(:last-child) {
-                    color: $headings-small-color;
+                    color: lighten($text-color, 10%);
                     padding-right: 15px;
                     white-space: nowrap;
                     font-weight: 300;
@@ -548,51 +670,6 @@
         &:hover {
             color: lighten($link-color, 20%);
         }
-    }
-
-    .carousel-list {
-        height: 88px;
-        padding: 5px 0 20px;
-        margin-top: 5px;
-        overflow-x: overlay;
-        overflow-y: hidden;
-        white-space: nowrap;
-        text-align: center;
-
-        .thumbnail {
-            display: inline-block;
-            vertical-align: top;
-            height: 100%;
-            width: 112px;
-            margin-left: 10px;
-            position: relative;
-            box-shadow: 0 0 5px rgba(0, 0, 0, .3);
-            white-space: nowrap;
-            text-align: center;
-            font-size: 0;
-            background: #1f1f1f;
-
-            &:first-child {
-                margin-left: 0;
-            }
-
-            img {
-                max-height: 100%;
-            }
-
-            &:hover {
-                opacity: .9;
-            }
-
-            &.active {
-                opacity: .5;
-                pointer-events: none;
-            }
-        }
-    }
-
-    .carousel-control {
-        background: none;
     }
 
 </style>

@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/Chnapy/MarollesAuto#readme",
   "dependencies": {
-    "vue": "^2.5.2",
-    "vue-carousel": "^0.6.5"
+    "vue": "^2.5.2"
   },
   "devDependencies": {
     "@types/node": "^8.0.34",
+    "ajv": "^5.2.3",
     "autoprefixer": "^7.1.5",
     "bootstrap-sass": "^3.3.7",
     "clean-webpack-plugin": "^0.1.17",
@@ -47,8 +47,7 @@
     "vue-property-decorator": "^6.0.0",
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.7.1",
-    "webpack-dev-server": "^2.9.1",
-    "ajv": "^5.2.3"
+    "webpack-dev-server": "^2.9.1"
   },
   "engines": {
     "node": ">=4.2"

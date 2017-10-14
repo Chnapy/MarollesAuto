@@ -13,7 +13,7 @@
                 <div class="tri pull-right">
                     Trier :
                     <!--<select class="form-control">-->
-                        <!--<option>par prix</option>-->
+                    <!--<option>par prix</option>-->
                     <!--</select>-->
                     <div class="btn-group open">
                         <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
