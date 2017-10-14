@@ -25,10 +25,15 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 .link {
-  //text-decoration: none;
-  //color: inherit;
-  //border-bottom: dotted 1px;
-  //cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: dotted 1px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    border-bottom-color: currentColor;
+  }
 }
 
 html, body, #mainWrapper {
@@ -214,6 +219,10 @@ hr {
     //border-bottom-color: #8a8a8a;
     border-bottom-color: darken($btn-primary-border, 5%);
   }
+}
+
+.label {
+  border-radius: 0;
 }
 
 .dropdown-menu {

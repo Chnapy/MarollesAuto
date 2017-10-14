@@ -6,25 +6,39 @@
             <h1>FORD  MONDEO 3
                 <small>III 2.0 TDCI 140 DPF GHIA 5P</small>
             </h1>
-            <span class="lead">109 112 Km - 2008 <span class="label label-default">Garantie 6 mois</span></span>
+            <span class="lead">109 112 Km - 2008 <span class="label label-danger pull-right">Garantie 6 mois <a
+                    class="link">extensible</a></span></span>
         </div>
 
         <div class="row">
             <div class="col-sm-8">
-                <div class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
+                <div class="carousel slide" data-ride="carousel" :data-index="carouselIndex">
 
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="../../public/img/W100812182.jpg" alt="...">
+
+                        <div :class="{active: i === carouselIndex, item: true}" v-for="(link, i) in carouselLinks"
+                             :key="i">
+                            <img :src="link" alt="..."/>
                         </div>
-                        <div class="item">
-                            <img src="../../public/img/W100812182.jpg" alt="...">
-                        </div>
+
+                    </div>
+
+                    <span class="left carousel-control" role="button" v-on:click="setCarouselIndex(carouselIndex - 1)" v-show="carouselIndex > 0">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                    <span class="right carousel-control" role="button" v-on:click="setCarouselIndex(carouselIndex + 1)" v-show="carouselIndex < carouselLinks.length - 1">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </span>
+
+                </div>
+
+                <div class="carousel-list">
+
+                    <div :class="{active: i === carouselIndex, thumbnail: true}" role="button" v-for="(link, i) in carouselLinks"
+                         :key="i" v-on:click="setCarouselIndex(i)">
+                        <img :src="link" alt="..."/>
                     </div>
 
                 </div>
@@ -344,21 +358,42 @@
                 </div>
 
                 <div class="row">
-                    <div class="bloc">
+                    <div class="bloc well well-sm">
 
-                        <button class="btn btn-default btn-block">Nous contacter</button>
+                        <div class="h3 text-center">
+                            Nous contacter
+                        </div>
+
+                        <address class="text-center">
+
+                            <div>
+                                <b><i class="glyphicon glyphicon-earphone"></i> 01 45 69 28 33</b>
+                            </div>
+
+                            <div class="strong">
+                                <b><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:marolleauto@aol.com"
+                                                                                   class="link">marolleauto@aol.com</a></b>
+                            </div>
+
+                        </address>
 
                     </div>
+
+                    <button class="btn btn-default btn-block"><i class="glyphicon glyphicon-map-marker"></i>
+                        Se rendre sur place
+                    </button>
 
                     <div class="bloc well well-sm">
 
                         <div class="h3 text-center">
                             <div>Marolles Autos s'engage</div>
-                            <small>Sécurité - Fiabilité</small>
+                            <small>Sécurité - Fiabilité - Confiance</small>
                         </div>
                         <dl class="text-justify">
                             <dt>Controle technique récent</dt>
-                            <dd>Chacune de nos voiture a passé un contrôle technique au maximum X ans avant la date d'achat.</dd>
+                            <dd>
+                                Chacune de nos voiture a passé un contrôle technique au maximum X ans avant la date d'achat.
+                            </dd>
                             <dt>Garantie européenne 3 mois extensible</dt>
                             <dd>Chacune de nos voitures est garantie au minimum 3 mois au niveau européen.</dd>
                             <dt>Voiture révisée</dt>
@@ -396,12 +431,42 @@
 <script lang="ts">
 
     import Vue from 'vue';
-    import {Component} from "vue-property-decorator";
+    import {Component, Provide} from "vue-property-decorator";
+
+    const carouselLinks = [
+        "../../public/img/W100812182.jpg",
+        "../../public/img/W100812182.jpg",
+        "../../public/img/W100812182.jpg",
+        "../../public/img/W100812182.jpg",
+        "../../public/img/W100812182.jpg",
+        "../../public/img/W100812182.jpg",
+        "../../public/img/W100812182.jpg",
+        "../../public/img/W100812182.jpg",
+        "../../public/img/W100812182.jpg",
+        "../../public/img/W100812182.jpg"
+    ];
 
     @Component({
         components: {}
     })
     export default class FicheC extends Vue {
+
+        @Provide()
+        carouselLinks: string[] = carouselLinks;
+
+        @Provide()
+        carouselIndex: number = 0;
+
+        @Provide()
+        setCarouselIndex(index: number) {
+            if (index < 0) {
+                this.carouselIndex = 0;
+            } else if (index >= this.carouselLinks.length) {
+                this.carouselIndex = this.carouselLinks.length - 1;
+            } else {
+                this.carouselIndex = index;
+            }
+        }
 
     }
 
@@ -412,6 +477,11 @@
 
     .carousel {
         box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+        background: #1f1f1f;
+
+        &:not(:hover) .carousel-control {
+            opacity: 0;
+        }
     }
 
     .bloc {
@@ -419,7 +489,7 @@
     }
 
     .caracs {
-        font-size: 12px;
+        font-size: 14px;
         color: $text-color;
         width: 100%;
 
@@ -449,6 +519,80 @@
     .caracs-parent.row > *:not(:last-child) {
         border-right: 1px solid #b1b1b1;
         margin-right: -1px;
+    }
+
+    .well-sm {
+        > h1, > h2, > h3, > .h1, > .h2, > .h3 {
+            margin-top: 0;
+        }
+    }
+
+    address .glyphicon {
+        vertical-align: middle;
+        font-size: 1.4em;
+        line-height: 1.4;
+    }
+
+    .btn {
+        padding-top: calc(#{$padding-base-vertical} - .4em);
+
+        .glyphicon {
+            font-size: 1.4em;
+            line-height: 1.4;
+        }
+    }
+
+    .label .link {
+        font-size: .75em;
+
+        &:hover {
+            color: lighten($link-color, 20%);
+        }
+    }
+
+    .carousel-list {
+        height: 88px;
+        padding: 5px 0 20px;
+        margin-top: 5px;
+        overflow-x: overlay;
+        overflow-y: hidden;
+        white-space: nowrap;
+        text-align: center;
+
+        .thumbnail {
+            display: inline-block;
+            vertical-align: top;
+            height: 100%;
+            width: 112px;
+            margin-left: 10px;
+            position: relative;
+            box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+            white-space: nowrap;
+            text-align: center;
+            font-size: 0;
+            background: #1f1f1f;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            img {
+                max-height: 100%;
+            }
+
+            &:hover {
+                opacity: .9;
+            }
+
+            &.active {
+                opacity: .5;
+                pointer-events: none;
+            }
+        }
+    }
+
+    .carousel-control {
+        background: none;
     }
 
 </style>
