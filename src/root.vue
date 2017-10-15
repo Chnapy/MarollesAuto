@@ -7,7 +7,8 @@
 
             <div class="container-fluid">
 
-                <main :is="content"></main>
+                <!--<main :is="content"></main>-->
+                <router-view></router-view>
 
             </div>
 

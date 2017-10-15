@@ -1,3 +1,8 @@
+
+export enum TypeLoad {
+    APERCU, ALL
+}
+
 export enum Energie {
     Diesel, Essence
 }
@@ -42,9 +47,15 @@ export interface InfosDonneesCompl {
     volCoffre: number;
     co2: number;
     consoMixte: number;
+    reparations: string[];
 }
 
 export interface VoitureProperties {
+
+    /**
+     * ID de la BDD
+     */
+    id: number;
 
     /**
      * Megane, Scenic, Mondeo...
@@ -80,5 +91,7 @@ export interface VoitureProperties {
     dateAjout: Date;
 
     dateEdit?: Date;
+
+    typeLoad: TypeLoad;
 
 }

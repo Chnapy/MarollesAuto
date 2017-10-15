@@ -4,9 +4,7 @@ import HeaderC from './components/HeaderC.vue';
 import InfosAnnoncesC from './components/InfosAnnoncesC.vue';
 import ContentAnnoncesC from './components/ContentAnnoncesC.vue';
 import AccueilC from './components/AccueilC.vue';
-import FicheC from './components/FicheC.vue';
-
-// const bg = require('../public/img/W100812182.jpg');
+import FicheC from './components/Fiche/FicheC.vue';
 
 @Component({
     components: {
