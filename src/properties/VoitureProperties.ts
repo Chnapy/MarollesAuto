@@ -13,8 +13,8 @@ export enum BoiteVitesse {
 
 export interface Prix {
     actu: number;
-    ancien: number;
-    dateReduc: Date;
+    ancien?: number;
+    dateReduc?: Date;
 }
 
 export interface Options {
@@ -23,6 +23,8 @@ export interface Options {
 
 export interface InfosGeneral {
     version: string;
+    annee: number;
+    kmetrage: number;
     puiFiscale: number;
     energie: Energie;
     coulInt: string;
@@ -35,11 +37,12 @@ export interface InfosGeneral {
 }
 
 export interface InfosOptions {
-    confort: Options;
-    extChassis: Options;
-    interieur: Options;
-    securite: Options;
-    autre: Options;
+    antivol: string[];
+    confort: string[];
+    extChassis: string[];
+    interieur: string[];
+    securite: string[];
+    autre: string[];
 }
 
 export interface InfosDonneesCompl {

@@ -15,8 +15,8 @@ export interface Adresse {
  * Liste de numero de téléphone (fixe & portable)
  */
 export interface Telephone {
-    fixe: number[];
-    portable: number[];
+    fixe: string[];
+    portable: string[];
 }
 
 /**
@@ -82,7 +82,7 @@ export interface SocieteProperties {
 
     siret: number;
 
-    idLaCentrale: number;
+    idLaCentrale: string;
 
     anneeCreation: number;
 

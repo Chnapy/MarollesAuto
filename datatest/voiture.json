@@ -1,3 +1,97 @@
 {
-  "marque": "Renault"
+  "id": 123,
+  "modele": "Scenic",
+  "marque": "Renault",
+  "garantieDuree": 3,
+  "prix": {
+    "ancien": 2540,
+    "dateAncien": "17/10/2017",
+    "actu": 795000
+  },
+  "photosPath": [
+    "../../public/img/W100812182.jpg",
+    "../../public/img/W100812182.jpg",
+    "../../public/img/W100812182.jpg",
+    "../../public/img/W100812182.jpg",
+    "../../public/img/W100812182.jpg"
+  ],
+  "general": {
+    "version": "III 2.0 TDCI 140 DPF GHIA 5P",
+    "annee": 2008,
+    "kmetrage": 105245,
+    "puiFiscale": 8,
+    "energie": 0,
+    "coulInt": "gris clair",
+    "coulExt": "gris metal",
+    "premMain": true,
+    "nbPortes": 5,
+    "boiteVitesse": 0,
+    "miseCircul": "08/04/2008",
+    "autoviza": null
+  },
+  "options": {
+    "antivol": [
+      "Anti démarrage"
+    ],
+    "confort": [
+      "Bluetooth"
+    ],
+    "extChassis": [
+      "Aide parking av/ar",
+      "Jantes alu 16\"",
+      "Rétroviseurs rabattables électriquement",
+      "Rétroviseurs électriques et dégivrants"
+    ],
+    "interieur": [
+      "4 vitres électriques",
+      "Accoudoir central arrière",
+      "Accoudoir central avant",
+      "Appuis-têtes arrière",
+      "Banquette 1/3 - 2/3",
+      "Banquette fractionnable",
+      "Banquette rabattable",
+      "Boite 6 vitesses",
+      "Boite à gants réfrigérée",
+      "Climatisation automatique multi zone",
+      "Direction assistée",
+      "Fermeture électrique automatique",
+      "Kit téléphone main libre",
+      "Ordinateur de bord",
+      "Pack clim",
+      "Pack électrique",
+      "Prises audio auxiliaires"
+    ],
+    "securite": [
+      "6 airbags",
+      "ABS",
+      "Détecteur de pluie",
+      "ESP",
+      "Essuie-glaces automatiques",
+      "Feux automatiques",
+      "Essuie-glaces automatiques",
+      "Fixations ISOFIX",
+      "Kit téléphone main libre bluetooth",
+      "Projecteurs antibrouillard"
+    ],
+    "autre": [
+      "Carnet d'entretien",
+      "Factures d'entretien",
+      "Non fumeur",
+      "Roue de secours"
+    ]
+  },
+  "donneesComp": {
+    "puiDIN": 140,
+    "volCoffre": null,
+    "co2": 156,
+    "consoMixte": null,
+    "reparations": [
+      "Freins",
+      "Pneus",
+      "Embrayage"
+    ]
+  },
+  "dateAjout": "15/10/2017",
+  "dateEdit": "16/10/2017",
+  "typeLoad": 1
 }

@@ -107,13 +107,14 @@
     import Vue from 'vue';
     import {Component} from "vue-property-decorator";
     import CarItemC from './CarItemC.vue';
+    import VueComponent from "./VueComponent";
 
     @Component({
         components: {
             CarItemC
         }
     })
-    export default class AccueilC extends Vue {
+    export default class AccueilC extends VueComponent {
 
     }
 

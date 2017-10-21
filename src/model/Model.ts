@@ -4,6 +4,7 @@ import Axios, {AxiosRequestConfig} from "axios";
 import {DEBUG} from "../index";
 
 enum ServerModule {
+    SOCIETE = 'societe',
     VOITURE = 'voiture',
     LIST_ANNONCES = 'annonces'
 }
@@ -15,6 +16,10 @@ interface AxiosParams {
 interface VoitureParams extends AxiosParams {
     m: ServerModule.VOITURE,
     id: number;
+}
+
+interface SocieteParams extends AxiosParams {
+    m: ServerModule.SOCIETE
 }
 
 export class Model {
@@ -32,6 +37,25 @@ export class Model {
 
     constructor() {
         this.voiturePropertiesList = [];
+    }
+
+    getSocieteProperties(): Promise<SocieteProperties> {
+        if(!this.societeProperties) {
+            const request = this.axiosRequest<SocieteParams, SocieteProperties>({
+                m: ServerModule.SOCIETE
+            }, {
+                url: '/datatest/societe.json'
+            }).then(data => {
+                this.societeProperties = data;
+                return this.societeProperties;
+            });
+
+            return new Promise((resolve, reject) => {
+                request.then(resolve)
+                    .catch(reject);
+            });
+        }
+        return new Promise(resolve => resolve(this.societeProperties));
     }
 
     getVoitureProperties(id: number): Promise<VoitureProperties> {

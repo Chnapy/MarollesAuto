@@ -1,0 +1,54 @@
+{
+  "nom": "Marolles Autos",
+  "logoPath": "../../public/img/logo_100x100.gif",
+  "adresse": {
+    "ligne1": "RN 19 - La Tuilerie",
+    "codePostal": 94440,
+    "ville": "Marolles en Brie",
+    "infosSup": "Infos en **plus**"
+  },
+  "telephone": {
+    "fixe": [
+      "0145692833"
+    ],
+    "portable": [
+      "0612345678"
+    ]
+  },
+  "mail": [
+    "marolleauto@aol.com"
+  ],
+  "slogan": "Marolles Autos.\nNous avons l'auto qu'il vous faut.\n\nL'auto garantie.\nAu meilleur prix.",
+  "horaires": {
+    "jours": [
+      {
+        "from": 0,
+        "to": 5
+      }
+    ],
+    "heures": [
+      {
+        "from": 900,
+        "to": 1300
+      },
+      {
+        "from": 1400,
+        "to": 1900
+      }
+    ],
+    "infosSup": "Infos en *plus*"
+  },
+  "siren": 443880612,
+  "siret": 44388061200017,
+  "idLaCentrale": "C013464",
+  "anneeCreation": 2003,
+  "collaborateurs": [
+    {
+      "photoPath": "",
+      "nom": "Haddad",
+      "prenom": "Richard",
+      "fonction": "Développeur de marolleauto.fr",
+      "description": "**blabla**"
+    }
+  ]
+}

@@ -22,6 +22,7 @@
     import {Component} from "vue-property-decorator";
     import FiltreC from './FiltreC';
     import ListeAnnoncesC from './ListeAnnoncesC';
+    import VueComponent from "./VueComponent";
 
     @Component({
         components: {
@@ -29,7 +30,7 @@
             ListeAnnoncesC
         }
     })
-    export default class ContentAnnoncesC extends Vue {
+    export default class ContentAnnoncesC extends VueComponent {
 
     }
 

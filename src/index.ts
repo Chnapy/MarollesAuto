@@ -11,4 +11,6 @@ Component.registerHooks([
 
 import {Controller} from "./controller/Controller";
 
-window['main'] = Controller.LETS_JAM_HERE_AND_NOW();
+Controller.LETS_JAM_HERE_AND_NOW();
+
+window['main'] = Controller;

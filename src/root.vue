@@ -3,12 +3,12 @@
 
         <div id="main">
 
-            <HeaderC></HeaderC>
+            <HeaderC :controller="controller" :societeProps="societeProps"></HeaderC>
 
             <div class="container-fluid">
 
                 <!--<main :is="content"></main>-->
-                <router-view></router-view>
+                <router-view :controller="controller" :societeProps="societeProps"></router-view>
 
             </div>
 

@@ -6,26 +6,27 @@ import AccueilC from '../components/AccueilC.vue';
 import ContentAnnoncesC from '../components/ContentAnnoncesC.vue';
 import FicheC from '../components/Fiche/FicheC.vue';
 import {Model} from "../model/Model";
+import {VoitureProperties} from "../properties/VoitureProperties";
+import {SocieteProperties} from "../properties/SocieteProperties";
 
 export class Controller {
 
-    static LETS_JAM_HERE_AND_NOW(): Controller {
-        const c = new Controller();
-        c.start();
-        return c;
+    static LETS_JAM_HERE_AND_NOW(): void {
+        Controller.start();
     }
 
     private static readonly VIEW_SELECT = '#app';
 
-    private model: Model;
-    private router: VueRouter;
-    private view: Vue;
+    private static model: Model;
+    private static router: VueRouter;
+    private static view: Vue;
 
-    startModel() {
+    private static startModel(): Promise<SocieteProperties> {
         this.model = new Model();
+        return this.model.getSocieteProperties();
     }
 
-    startRouter() {
+    private static startRouter() {
         Vue.use(VueRouter);
 
         this.router = new VueRouter({
@@ -47,31 +48,16 @@ export class Controller {
                     name: 'voiture',
                     path: '/voiture/:id',
                     component: FicheC,
-                    props: true,
-                    // beforeEnter: Fiche.beforeEnter
+                    props: route => ({id: Number.parseInt(route.params.id)}),
                     beforeEnter: (to, from, next) => {
-
-                        const id = Number.parseInt(to.params.id);
-
-                        this.model.getVoitureProperties(id)
-                            .then(voitureProps => {
-                                console.log(voitureProps, 'ee');
-                                next(vm => {
-                                    vm.$props.voitureProps = voitureProps;
-console.log(vm);
-                                })
-                            })
-                            .catch(err => {
-                                next(err);
-                            });
-
+                        next();
                     }
                 }
             ]
         })
     }
 
-    startView() {
+    private static startView(societeProperties: SocieteProperties) {
         interface VueConfigRoutable extends ComponentOptions<Vue, DefaultData<Vue>, DefaultMethods<Vue>, DefaultComputed, PropsDefinition<RecordPropsDefinition<any>>> {
             router?: VueRouter;
         }
@@ -80,17 +66,33 @@ console.log(vm);
             router: this.router,
             el: Controller.VIEW_SELECT,
             render: h => h(root, {
-                props: {}
+                props: {controller: this, societeProps: societeProperties}
             })
         };
 
         this.view = new Vue(config);
     }
 
-    start() {
-        this.startModel();
-        this.startRouter();
-        this.startView();
+    private static start() {
+        this.startModel().then(societeProperties => {
+            this.parseSocieteProperties(societeProperties);
+            this.startRouter();
+            this.startView(societeProperties);
+        });
+    }
+
+    private static parseSocieteProperties(societeProps: SocieteProperties): void {
+        // console.log(societeProps.logoPath, __dirname)
+        // const path = './../public/img/' + societeProps.logoPath;
+        // let e = import(path).then(path => societeProps.logoPath = path);
+    }
+
+    static getSocieteProperties(): Promise<SocieteProperties> {
+        return this.model.getSocieteProperties();
+    }
+
+    static getVoitureProperties(id: number): Promise<VoitureProperties> {
+        return this.model.getVoitureProperties(id);
     }
 
 }

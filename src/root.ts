@@ -1,10 +1,12 @@
 import Vue from 'vue';
-import {Component, Provide} from "vue-property-decorator";
+import {Component, Prop} from "vue-property-decorator";
 import HeaderC from './components/HeaderC.vue';
 import InfosAnnoncesC from './components/InfosAnnoncesC.vue';
 import ContentAnnoncesC from './components/ContentAnnoncesC.vue';
 import AccueilC from './components/AccueilC.vue';
 import FicheC from './components/Fiche/FicheC.vue';
+import {Controller} from "./controller/Controller";
+import {SocieteProperties} from "./properties/SocieteProperties";
 
 @Component({
     components: {
@@ -18,8 +20,11 @@ import FicheC from './components/Fiche/FicheC.vue';
 export default class MainC extends Vue {
 
 
-//        @Prop()
-//        value: string;
+    @Prop()
+    controller: Controller;
+
+    @Prop()
+    societeProps: SocieteProperties;
 //
 //        @Prop()
 //        onClick?: () => void;
@@ -30,8 +35,8 @@ export default class MainC extends Vue {
 //         'background-size': '100% auto'
 //     };
 //
-    @Provide()
-    content = FicheC;
+//     @Provide()
+//     content = FicheC;
     // content = ContentAnnoncesC;
 //
 //        @Provide()

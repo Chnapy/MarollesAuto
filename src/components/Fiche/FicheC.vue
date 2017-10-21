@@ -3,10 +3,10 @@
     <section class="container">
 
         <div class="page-header">
-            <h1>FORD  MONDEO 3
-                <small>III 2.0 TDCI 140 DPF GHIA 5P</small>
+            <h1>{{voitureProps.marque}} {{voitureProps.modele}}
+                <small>{{voitureProps.general.version}}</small>
             </h1>
-            <span class="lead">109 112 Km - 2008 <span class="label label-danger pull-right">Garantie 6 mois <a
+            <span class="lead">{{nbrToStr(voitureProps.general.kmetrage)}} Km - {{voitureProps.general.annee}} <span class="label label-danger pull-right">Garantie {{voitureProps.garantieDuree}} mois <a
                     class="link">extensible</a></span></span>
         </div>
 
@@ -21,7 +21,7 @@
 
                         <div class="carousel-inner" role="listbox">
 
-                            <div :class="{active: i === carouselIndex, item: true}" v-for="(link, i) in carouselLinks"
+                            <div :class="{active: i === carouselIndex, item: true}" v-for="(link, i) in voitureProps.photosPath"
                                  :key="i">
                                 <img :src="link" alt="..." v-on:click="carouselFullscreen = !carouselFullscreen"/>
                             </div>
@@ -35,7 +35,7 @@
                     </span>
                         <span class="right carousel-control" role="button"
                               v-on:click="setCarouselIndex(carouselIndex + 1)"
-                              v-show="carouselIndex < carouselLinks.length - 1">
+                              v-show="carouselIndex < voitureProps.photosPath.length - 1">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                         <span class="sr-only">Next</span>
                     </span>
@@ -45,7 +45,7 @@
                     <div class="carousel-list">
 
                         <div :class="{active: i === carouselIndex, thumbnail: true}" role="button"
-                             v-for="(link, i) in carouselLinks"
+                             v-for="(link, i) in voitureProps.photosPath"
                              :key="i" v-on:click="setCarouselIndex(i)">
                             <img :src="link" alt="..."/>
                         </div>
@@ -65,23 +65,23 @@
 
                                 <tr>
                                     <td>Version</td>
-                                    <td>III 2.0 TDCI 140 DPF GHIA 5P</td>
+                                    <td>{{voitureProps.general.version}}</td>
                                 </tr>
                                 <tr>
                                     <td>Puissance Fiscale</td>
-                                    <td>8 CV</td>
+                                    <td>{{voitureProps.general.puiFiscale}} CV</td>
                                 </tr>
                                 <tr>
                                     <td>Energie</td>
-                                    <td>Diesel</td>
+                                    <td>{{enumToEnergieStr(voitureProps.general.energie)}}</td>
                                 </tr>
                                 <tr>
                                     <td>Boite de vitesse</td>
-                                    <td>Mécanique</td>
+                                    <td>{{enumToBoiteStr(voitureProps.general.boiteVitesse)}}</td>
                                 </tr>
                                 <tr>
                                     <td>Mise en circulation</td>
-                                    <td>08/04/2008</td>
+                                    <td>{{voitureProps.general.miseCircul}}</td>
                                 </tr>
 
                             </table>
@@ -94,23 +94,23 @@
 
                                 <tr>
                                     <td>Année</td>
-                                    <td>2008</td>
+                                    <td>{{voitureProps.general.annee}}</td>
                                 </tr>
                                 <tr>
                                     <td>Kilométrage</td>
-                                    <td>109 112 Km</td>
+                                    <td>{{nbrToStr(voitureProps.general.kmetrage)}} Km</td>
                                 </tr>
                                 <tr>
                                     <td>Nombre de portes</td>
-                                    <td>5</td>
+                                    <td>{{voitureProps.general.nbPortes}}</td>
                                 </tr>
                                 <tr>
                                     <td>Couleur intérieure</td>
-                                    <td>Tissus gris</td>
+                                    <td>{{voitureProps.general.coulInt}}</td>
                                 </tr>
                                 <tr>
                                     <td>Couleur extérieure</td>
-                                    <td>Gris clair métal</td>
+                                    <td>{{voitureProps.general.coulExt}}</td>
                                 </tr>
 
                             </table>
@@ -129,86 +129,25 @@
 
                             <table class="caracs">
 
-                                <tr>
-                                    <td>Antivol</td>
-                                    <td>Anti démarrage</td>
+                                <tr v-for="(v, i) in voitureProps.options.antivol">
+                                    <td><slot v-if="i === 0">Antivol</slot></td>
+                                    <td>{{v}}</td>
                                 </tr>
 
-                                <tr>
-                                    <td>Extérieur et chassis</td>
-                                    <td>Aide parking av/ar</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Jantes alu 16"</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Rétroviseurs rabattables électriquement</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Rétroviseurs électriques et dégivrants</td>
+                                <tr v-for="(v, i) in voitureProps.options.securite">
+                                    <td><slot v-if="i === 0">Sécurité</slot></td>
+                                    <td>{{v}}</td>
                                 </tr>
 
-                                <tr>
-                                    <td>Sécurité</td>
-                                    <td>6 airbags</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>ABS</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Détecteur de pluie</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>ESP</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Essuie-glaces automatiques</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Feux automatiques</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Essuie-glaces automatiques</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Fixations ISOFIX</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kit téléphone main libre bluetooth</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Projecteurs antibrouillard</td>
+                                <tr v-for="(v, i) in voitureProps.options.extChassis">
+                                    <td><slot v-if="i === 0">Extérieur et chassis</slot></td>
+                                    <td>{{v}}</td>
                                 </tr>
 
-                                <tr>
-                                    <td>Autre</td>
-                                    <td>Carnet d'entretien</td>
+                                <tr v-for="(v, i) in voitureProps.options.autre">
+                                    <td><slot v-if="i === 0">Autre</slot></td>
+                                    <td>{{v}}</td>
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Factures d'entretien</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Non fumeur</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Roue de secours</td>
-                                </tr>
-
 
                             </table>
 
@@ -218,78 +157,14 @@
 
                             <table class="caracs">
 
-                                <tr>
-                                    <td>Confort</td>
-                                    <td>Bluetooth</td>
+                                <tr v-for="(v, i) in voitureProps.options.confort">
+                                    <td><slot v-if="i === 0">Confort</slot></td>
+                                    <td>{{v}}</td>
                                 </tr>
 
-                                <tr>
-                                    <td>Intérieur</td>
-                                    <td>4 vitres électriques</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Accoudoir central arrière</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Accoudoir central avant</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Appuis-têtes arrière</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Banquette 1/3 - 2/3</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Banquette fractionnable</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Banquette rabattable</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Boite 6 vitesses</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Boite à gants réfrigérée</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Climatisation automatique multi zone</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Direction assistée</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Fermeture électrique automatique</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kit téléphone main libre</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Ordinateur de bord</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Pack clim</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Pack électrique</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Prises audio auxiliaires</td>
+                                <tr v-for="(v, i) in voitureProps.options.interieur">
+                                    <td><slot v-if="i === 0">Intérieur</slot></td>
+                                    <td>{{v}}</td>
                                 </tr>
 
                             </table>
@@ -310,23 +185,17 @@
 
                                 <tr>
                                     <td>Puissance DIN</td>
-                                    <td>140 ch</td>
+                                    <td>{{voitureProps.donneesComp.puiDIN}}</td>
                                 </tr>
+
                                 <tr>
                                     <td>Volume de coffre</td>
-                                    <td>Nom communiqué</td>
+                                    <td>{{voitureProps.donneesComp.volCoffre}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Réparations</td>
-                                    <td>Freins</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Pneus</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Embrayage</td>
+
+                                <tr v-for="(v, i) in voitureProps.donneesComp.reparations">
+                                    <td><slot v-if="i === 0">Réparations</slot></td>
+                                    <td>{{v}}</td>
                                 </tr>
 
                             </table>
@@ -339,11 +208,11 @@
 
                                 <tr>
                                     <td>Emission de CO2</td>
-                                    <td>156 g/km</td>
+                                    <td>{{voitureProps.donneesComp.co2}} g/km</td>
                                 </tr>
                                 <tr>
                                     <td>Consommation mixte</td>
-                                    <td>Non communiquée</td>
+                                    <td>{{voitureProps.donneesComp.consoMixte}}</td>
                                 </tr>
 
                             </table>
@@ -360,11 +229,11 @@
 
                 <div class="row">
                     <div class="prix-container lg">
-                        <div class="reduc">
-                            <div class="prix old"><span class="prix-text">7 580</span></div>
-                            <span class="label label-warning reduc-label">300</span>
+                        <div class="reduc" v-if="voitureProps.prix.ancien">
+                            <div class="prix old"><span class="prix-text">{{nbrToPrix(voitureProps.prix.ancien)}}</span></div>
+                            <span class="label label-warning reduc-label">{{nbrToPrix(voitureProps.prix.actu - voitureProps.prix.ancien)}}</span>
                         </div>
-                        <div class="prix primary"><span class="prix-text">7 280</span></div>
+                        <div class="prix primary"><span class="prix-text">{{nbrToPrix(voitureProps.prix.actu)}}</span></div>
                     </div>
                 </div>
 
