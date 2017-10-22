@@ -5,7 +5,7 @@ import {DefaultComputed, DefaultData, DefaultMethods, PropsDefinition, RecordPro
 import AccueilC from '../components/AccueilC.vue';
 import ContentAnnoncesC from '../components/ContentAnnoncesC.vue';
 import FicheC from '../components/Fiche/FicheC.vue';
-import {Model} from "../model/Model";
+import {Model, Order} from "../model/Model";
 import {VoitureProperties} from "../properties/VoitureProperties";
 import {SocieteProperties} from "../properties/SocieteProperties";
 
@@ -54,7 +54,7 @@ export class Controller {
                     }
                 }
             ]
-        })
+        });
     }
 
     private static startView(societeProperties: SocieteProperties) {
@@ -93,6 +93,10 @@ export class Controller {
 
     static getVoitureProperties(id: number): Promise<VoitureProperties> {
         return this.model.getVoitureProperties(id);
+    }
+
+    static getAllVoitureProperties(limit: number | null, order: Order): Promise<VoitureProperties[]> {
+        return this.model.getAllVoitureProperties(limit, order);
     }
 
 }

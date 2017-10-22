@@ -4,7 +4,7 @@
   "marque": "Renault",
   "garantieDuree": 3,
   "prix": {
-    "ancien": 2540,
+    "ancien": 815000,
     "dateAncien": "17/10/2017",
     "actu": 795000
   },
@@ -92,6 +92,5 @@
     ]
   },
   "dateAjout": "15/10/2017",
-  "dateEdit": "16/10/2017",
-  "typeLoad": 1
+  "dateEdit": "16/10/2017"
 }

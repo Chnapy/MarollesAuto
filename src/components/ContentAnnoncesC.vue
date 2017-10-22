@@ -4,11 +4,11 @@
 
         <div class="row">
             <div class="col-md-4">
-                <FiltreC/>
+                <FiltreC></FiltreC>
             </div>
 
             <div class="col-md-8">
-                <ListeAnnoncesC/>
+                <ListeAnnoncesC :allVoitureProps="allVoitureProps"></ListeAnnoncesC>
             </div>
         </div>
 
@@ -19,10 +19,14 @@
 <script lang="ts">
 
     import Vue from 'vue';
-    import {Component} from "vue-property-decorator";
+    import {Component, Provide} from "vue-property-decorator";
     import FiltreC from './FiltreC';
-    import ListeAnnoncesC from './ListeAnnoncesC';
+    import ListeAnnoncesC from './ListeAnnonces/ListeAnnoncesC.vue';
     import VueComponent from "./VueComponent";
+    import {Route} from "vue-router";
+    import {Controller} from "../controller/Controller";
+    import {VoitureProperties} from "../properties/VoitureProperties";
+    import {Order} from "../model/Model";
 
     @Component({
         components: {
@@ -32,6 +36,25 @@
     })
     export default class ContentAnnoncesC extends VueComponent {
 
+        @Provide()
+        allVoitureProps: VoitureProperties[];
+
+        constructor() {
+            super();
+            this.allVoitureProps = [];
+        }
+
+        beforeRouteEnter(from: Route, to: Route, next: (fct: (vm: ContentAnnoncesC) => any) => any) {
+            Promise.all([
+                Controller.getAllVoitureProperties(null, Order.DATE)
+            ]).then(data => {
+                next(vm => {
+                    // vm.$data.societeProps = data[0];
+                    vm.$data.allVoitureProps = data[0];
+                    console.log('toto', vm);
+                });
+            });
+        }
     }
 
 </script>

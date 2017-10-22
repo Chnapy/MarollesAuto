@@ -263,7 +263,8 @@
 
                     </div>
 
-                    <button class="btn btn-default btn-block"><i class="glyphicon glyphicon-map-marker"></i>
+                    <button class="btn btn-default btn-block btn-acces">
+                        <i class="glyphicon glyphicon-map-marker"></i>
                         Se rendre sur place
                     </button>
 

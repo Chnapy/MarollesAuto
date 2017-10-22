@@ -44,7 +44,7 @@
 
                     <div class="vlist">
 
-                        <CarItemC inline="true"></CarItemC>
+                        <CarItemC v-for="props in voituresByPrix" :key="props.id" :voitureProps="props" inline="true"></CarItemC>
 
                     </div>
 
@@ -62,6 +62,8 @@
                     </div>
 
                     <div class="vlist">
+
+                        <CarItemC v-for="props in voituresByPrix" :key="props.id" :voitureProps="props" inline="true"></CarItemC>
 
                     </div>
 
@@ -105,9 +107,13 @@
 <script lang="ts">
 
     import Vue from 'vue';
-    import {Component} from "vue-property-decorator";
+    import {Component, Provide} from "vue-property-decorator";
     import CarItemC from './CarItemC.vue';
     import VueComponent from "./VueComponent";
+    import {Route} from "vue-router";
+    import {Order} from "../model/Model";
+    import {Controller} from "../controller/Controller";
+    import {VoitureProperties} from "../properties/VoitureProperties";
 
     @Component({
         components: {
@@ -116,6 +122,31 @@
     })
     export default class AccueilC extends VueComponent {
 
+        @Provide()
+        voituresByDate: VoitureProperties[];
+
+        @Provide()
+        voituresByPrix: VoitureProperties[];
+
+        constructor() {
+            super();
+            this.voituresByDate = [];
+            this.voituresByPrix = [];
+        }
+
+        beforeRouteEnter(from: Route, to: Route, next: (fct: (vm: AccueilC) => any) => any) {
+            Promise.all([
+                Controller.getAllVoitureProperties(5, Order.DATE),
+                Controller.getAllVoitureProperties(5, Order.PRIX)
+            ]).then(data => {
+                next(vm => {
+                    // vm.$data.societeProps = data[0];
+                    vm.$data.voituresByDate = data[0];
+                    vm.$data.voituresByPrix = data[1];
+                    console.log('toto', vm);
+                });
+            });
+        }
     }
 
 </script>

@@ -171,8 +171,8 @@ address .glyphicon {
   line-height: 1.4;
 }
 
-.btn {
-  padding-top: calc(#{$padding-base-vertical} - .4em);
+.btn.btn-acces {
+  padding-top: 0;
 
   .glyphicon {
     font-size: 1.4em;

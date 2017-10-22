@@ -95,6 +95,4 @@ export interface VoitureProperties {
 
     dateEdit?: Date;
 
-    typeLoad: TypeLoad;
-
 }

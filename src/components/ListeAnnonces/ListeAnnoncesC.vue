@@ -20,9 +20,9 @@
                             Par date d'ajout <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#">Par date d'ajout</a></li>
-                            <li><a href="#">Par prix</a></li>
-                            <li><a href="#">Par année</a></li>
+                            <li><a @click="switchOrder('date')">Par date d'ajout</a></li>
+                            <li><a @click="switchOrder('prix')">Par prix</a></li>
+                            <li><a @click="switchOrder('annee')">Par année</a></li>
                         </ul>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-sm-6 col-md-4 col-lg-4">
 
-                <CarItemC></CarItemC>
+                <CarItemC v-for="props in getAllVoitures()" :key="props.id" :voitureProps="props"></CarItemC>
 
             </div>
         </div>
@@ -41,26 +41,13 @@
 
 </template>
 
-<script lang="ts">
+<!--<script lang="ts" src="./Fiche.ts"></script>-->
+<!--<style src="./FicheC.scss" lang="scss"></style>-->
 
-    import Vue from 'vue';
-    import {Component, Provide} from "vue-property-decorator";
-    import CarItemC from './CarItemC.vue';
-
-    @Component({
-        components: {
-            CarItemC
-        }
-    })
-    export default class ListeAnnoncesC extends Vue {
-
-
-    }
-
-</script>
+<script lang="ts" src="./ListeAnnonces.ts"></script>
 
 <style lang="scss" scoped>
-    @import "../../scss/bootstrap-custom-variables";
+    @import "../../../scss/bootstrap-custom-variables";
 
     .head {
         padding-bottom: 15px;

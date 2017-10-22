@@ -22,7 +22,7 @@
 
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li :class="{ active: $route.name === 'listAnnonces'}">
                         <router-link :to="{name: 'listAnnonces'}">Annonces</router-link>
                     </li>
                     <li>
@@ -79,6 +79,7 @@
         constructor() {
             super();
             this.logoLC = logo_lc;
+            console.log(this);
         }
     }
 
