@@ -40,7 +40,7 @@ export class Controller {
                 },
                 {
                     name: 'listAnnonces',
-                    path: '/annonces',
+                    path: '/annonces/:order?',
                     component: ContentAnnoncesC,
                     props: true
                 },

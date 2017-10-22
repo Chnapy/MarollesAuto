@@ -8,7 +8,7 @@
             </div>
 
             <div class="col-md-8">
-                <ListeAnnoncesC :allVoitureProps="allVoitureProps"></ListeAnnoncesC>
+                <ListeAnnoncesC :allVoitureProps="allVoitureProps" :order="order"></ListeAnnoncesC>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
 <script lang="ts">
 
     import Vue from 'vue';
-    import {Component, Provide} from "vue-property-decorator";
+    import {Component, Prop, Provide} from "vue-property-decorator";
     import FiltreC from './FiltreC';
     import ListeAnnoncesC from './ListeAnnonces/ListeAnnoncesC.vue';
     import VueComponent from "./VueComponent";
@@ -27,6 +27,7 @@
     import {Controller} from "../controller/Controller";
     import {VoitureProperties} from "../properties/VoitureProperties";
     import {Order} from "../model/Model";
+    import {OrderStr} from "./ListeAnnonces/ListeAnnonces";
 
     @Component({
         components: {
@@ -38,6 +39,9 @@
 
         @Provide()
         allVoitureProps: VoitureProperties[];
+
+        @Prop()
+        readonly order: OrderStr;
 
         constructor() {
             super();

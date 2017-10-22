@@ -22,25 +22,41 @@ export default class ListeAnnoncesC extends Vue {
         annee: (a: VoitureProperties, b: VoitureProperties) => a.general.annee < b.general.annee ? -1 : 1
     };
 
-    private order: OrderStr;
+    private orderBy: OrderStr;
 
     @Prop({required: true})
-    allVoitureProps: VoitureProperties[];
+    readonly allVoitureProps: VoitureProperties[];
+
+    @Prop()
+    readonly order: OrderStr;
 
     constructor(a: any) {
         super(a as ComponentOptions<Vue>);
-        this.order = 'date';
-        console.log(this.allVoitureProps);
+        console.log('ORDER', this.order, this.orderBy);
     }
 
     @Provide()
     getAllVoitures(): VoitureProperties[] {
-        const fct = this.sortFcts[this.order];
+        const fct = this.sortFcts[this.getOrderBy()];
         return this.allVoitureProps.slice().sort(fct);
     }
 
+    @Provide()
+    getOrderBy(): OrderStr {
+        if(!this.orderBy && !this.order) {
+            return 'date';
+        }
+
+        if(this.orderBy) {
+            return this.orderBy;
+        }
+
+        return this.order;
+    }
+
     switchOrder(order: OrderStr) {
-        this.order = order;
+        this.orderBy = order;
+        console.log('ORDER', order);
     }
 
 }

@@ -17,7 +17,16 @@
                     <!--</select>-->
                     <div class="btn-group open">
                         <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                            Par date d'ajout <span class="caret"></span>
+                            <slot v-if="getOrderBy() === 'date'">
+                                Par date d'ajout
+                            </slot>
+                            <slot v-else-if="getOrderBy() === 'prix'">
+                                Par prix
+                            </slot>
+                            <slot v-else-if="getOrderBy() === 'annee'">
+                                Par année
+                            </slot>
+                            <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a @click="switchOrder('date')">Par date d'ajout</a></li>

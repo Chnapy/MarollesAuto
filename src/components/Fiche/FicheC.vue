@@ -231,7 +231,7 @@
                     <div class="prix-container lg">
                         <div class="reduc" v-if="voitureProps.prix.ancien">
                             <div class="prix old"><span class="prix-text">{{nbrToPrix(voitureProps.prix.ancien)}}</span></div>
-                            <span class="label label-warning reduc-label">{{nbrToPrix(voitureProps.prix.actu - voitureProps.prix.ancien)}}</span>
+                            <span class="label label-warning reduc-label">{{nbrToPrix(voitureProps.prix.ancien - voitureProps.prix.actu)}}</span>
                         </div>
                         <div class="prix primary"><span class="prix-text">{{nbrToPrix(voitureProps.prix.actu)}}</span></div>
                     </div>

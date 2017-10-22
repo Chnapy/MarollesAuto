@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button class="btn btn-default btn-sm">Voir tout les derniers arrivages</button>
+                        <router-link tag="button" :to="{name: 'listAnnonces', params: {order: 'date'}}" class="btn btn-default btn-sm">Voir tout les derniers arrivages</router-link>
                     </div>
 
                 </div>
@@ -57,7 +57,7 @@
                 <div class="col-md-4">
 
                     <div class="line-title text-center">
-                        <span class="line-title-label">Dernières baisses de prix
+                        <span class="line-title-label">Les moins chères
                             </span>
                     </div>
 
@@ -68,7 +68,9 @@
                     </div>
 
                     <div class="text-center">
-                        <button class="btn btn-default btn-sm">Voir toutes les dernières réductions</button>
+                        <router-link tag="button" :to="{name: 'listAnnonces', params: {order: 'prix'}}" class="btn btn-default btn-sm">
+                            Voir toutes les moins chères
+                        </router-link>
                     </div>
 
                 </div>
@@ -93,7 +95,7 @@
 
             <hr/>
 
-            <button class="btn btn-primary btn-lg btn-block">Voir le catalogue complet</button>
+            <router-link :to="{name: 'listAnnonces'}" tag="button" class="btn btn-primary btn-lg btn-block">Voir le catalogue complet</router-link>
 
             <hr/>
 
