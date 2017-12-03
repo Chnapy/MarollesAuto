@@ -3,10 +3,13 @@ import {Route} from "vue-router";
 import {BoiteVitesse, Energie, VoitureProperties} from "../../properties/VoitureProperties";
 import {Controller} from "../../controller/Controller";
 import VueComponent from "../VueComponent";
+import Contact from "../Contact.vue";
 import Tools from "../../Tools";
 
 @Component({
-    components: {}
+    components: {
+        Contact
+    }
 })
 export default class FicheC extends VueComponent {
 

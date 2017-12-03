@@ -240,26 +240,28 @@
                 <div class="row">
                     <div class="bloc well well-sm">
 
-                        <div class="h3 text-center">
-                            Nous contacter
-                        </div>
+                        <Contact :societeProps="societeProps" embed="true" ></Contact>
 
-                        <address class="text-center">
+                        <!--<div class="h3 text-center">-->
+                            <!--Nous contacter-->
+                        <!--</div>-->
 
-                            <div>
-                                <b><i class="glyphicon glyphicon-earphone"></i> 01 45 69 28 33</b>
-                            </div>
+                        <!--<address class="text-center">-->
 
-                            <div>
-                                <b><i class="glyphicon glyphicon-phone"></i> 06 12 34 56 78</b>
-                            </div>
+                            <!--<div>-->
+                                <!--<b><i class="glyphicon glyphicon-earphone"></i> 01 45 69 28 33</b>-->
+                            <!--</div>-->
 
-                            <div class="strong">
-                                <b><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:marolleauto@aol.com"
-                                                                                   class="link">marolleauto@aol.com</a></b>
-                            </div>
+                            <!--<div>-->
+                                <!--<b><i class="glyphicon glyphicon-phone"></i> 06 12 34 56 78</b>-->
+                            <!--</div>-->
 
-                        </address>
+                            <!--<div class="strong">-->
+                                <!--<b><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:marolleauto@aol.com"-->
+                                                                                   <!--class="link">marolleauto@aol.com</a></b>-->
+                            <!--</div>-->
+
+                        <!--</address>-->
 
                     </div>
 

@@ -36,7 +36,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="http://pros.lacentrale.fr/C013464/" target="_blank" id="logo-lc"><img
                             alt="lacentrale.fr" :src="logoLC"></a></li>
-                    <li><a href="" target="_blank">Contact</a></li>
+                    <li :class="{ active: $route.name === 'contact'}">
+                        <router-link :to="{name: 'contact'}">Contact</router-link>
+                    </li>
                     <li><a href="" target="_blank">Plan d'accès</a></li>
                 </ul>
 

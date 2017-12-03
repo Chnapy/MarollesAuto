@@ -3,11 +3,12 @@ import root from "../root.vue";
 import VueRouter from "vue-router";
 import {DefaultComputed, DefaultData, DefaultMethods, PropsDefinition, RecordPropsDefinition} from "vue/types/options";
 import AccueilC from '../components/AccueilC.vue';
+import Contact from '../components/Contact.vue';
 import ContentAnnoncesC from '../components/ContentAnnoncesC.vue';
 import FicheC from '../components/Fiche/FicheC.vue';
 import {Model, Order} from "../model/Model";
 import {VoitureProperties} from "../properties/VoitureProperties";
-import {SocieteProperties} from "../properties/SocieteProperties";
+import {Horaire, SocieteProperties} from "../properties/SocieteProperties";
 
 export class Controller {
 
@@ -36,6 +37,12 @@ export class Controller {
                     name: 'accueil',
                     path: '',
                     component: AccueilC,
+                    props: true
+                },
+                {
+                    name: 'contact',
+                    path: '/contact',
+                    component: Contact,
                     props: true
                 },
                 {
@@ -85,6 +92,45 @@ export class Controller {
         // console.log(societeProps.logoPath, __dirname)
         // const path = './../public/img/' + societeProps.logoPath;
         // let e = import(path).then(path => societeProps.logoPath = path);
+    }
+
+    static isSocieteOpenNow(horaire: Horaire): boolean {
+
+        const getMinutesStr = (min: number) => {
+            if (min === 0) {
+                return '00';
+            } else if (min < 10) {
+                return '0' + min;
+            } else {
+                return min;
+            }
+        };
+
+        const now = new Date();
+        const jour = now.getDay() - 1;
+        const heure = now.getHours();
+        const minutes = now.getMinutes();
+        const nowStr = Number.parseInt(heure + '' + getMinutesStr(minutes));
+        console.log(nowStr);
+
+        const jourOK = horaire.jours.some(j => j.from <= jour && j.to >= jour);
+
+        if (!jourOK) {
+            return false;
+        }
+
+        const heuresOK = horaire.heures.some(h => {
+
+            // const hFrom = Number.parseInt(h.from / 100 + '');
+            // const mFrom = h.from % 100;
+            //
+            // const hTo = Number.parseInt(h.to / 100 + '');
+            // const mTo = h.to % 100;
+
+            return h.from <= nowStr && h.to >= nowStr;
+        });
+
+        return heuresOK;
     }
 
     static getSocieteProperties(): Promise<SocieteProperties> {
